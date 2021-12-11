@@ -10,7 +10,7 @@ class PantallaNuevoReporte extends StatelessWidget {
     return SafeArea(
       child: Scaffold(
         resizeToAvoidBottomInset: false,
-        appBar: Componentes.getAppBar('Nuevo reporte'),
+        appBar: Componentes.getBarraSuperior('Nuevo reporte'),
         body: Container(
           margin: EdgeInsets.only(top: 15.0),
           padding: EdgeInsets.symmetric(horizontal: 10),

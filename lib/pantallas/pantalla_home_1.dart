@@ -1,6 +1,5 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:google_fonts/google_fonts.dart';
 import 'componentes/componentes.dart';
 
 class PantallaHome1 extends StatelessWidget {
@@ -8,7 +7,7 @@ class PantallaHome1 extends StatelessWidget {
   Widget build(BuildContext context) {
     return SafeArea(
       child: Scaffold(
-        appBar: Componentes.getAppBar('Bienvenido: USUARIO'),
+        appBar: Componentes.getBarraSuperior('Bienvenido: USUARIO'),
         body: Container(
           padding: EdgeInsets.symmetric(horizontal: 40),
           color: Color(0xFFfafafa),

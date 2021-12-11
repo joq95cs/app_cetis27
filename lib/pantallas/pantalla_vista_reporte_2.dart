@@ -9,7 +9,7 @@ class PantallaVistaReporte2 extends StatelessWidget {
     return SafeArea(
       child: Scaffold(
         resizeToAvoidBottomInset: false,
-        appBar: Componentes.getAppBar('Detalle del reporte'),
+        appBar: Componentes.getBarraSuperior('Detalle del reporte'),
         body: Container(
           margin: EdgeInsets.only(top: 10.0),
           padding: EdgeInsets.symmetric(horizontal: 10),

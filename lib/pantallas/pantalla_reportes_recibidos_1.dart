@@ -1,6 +1,5 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:google_fonts/google_fonts.dart';
 import 'componentes/componentes.dart';
 import 'temporal/reportes.dart';
 
@@ -9,7 +8,7 @@ class PantallaReportesRecibidos1 extends StatelessWidget {
   Widget build(BuildContext context) {
     return SafeArea(
       child: Scaffold(
-        appBar: Componentes.getAppBar('Reportes recibidos'),
+        appBar: Componentes.getBarraSuperior('Reportes recibidos'),
         body: Column(
           children: [
             Row(
