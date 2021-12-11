@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-
 import 'componentes/componentes.dart';
 
 class PantallaLogin extends StatelessWidget {
@@ -9,6 +8,7 @@ class PantallaLogin extends StatelessWidget {
   Widget build(BuildContext context) {
     return SafeArea(
       child: Scaffold(
+        resizeToAvoidBottomInset: false,
         body: Container(
           padding: EdgeInsets.symmetric(horizontal: 40),
           color: Color(0xFFfafafa),

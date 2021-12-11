@@ -1,4 +1,4 @@
-import 'package:app_cetis27/pantallas/componentes/componentes_statateful/barra_superior.dart';
+import 'package:app_cetis27/pantallas/componentes/componentes_stateless/barra_superior.dart';
 import 'package:app_cetis27/pantallas/componentes/componentes_statateful/boton_tipo_2.dart';
 import 'package:app_cetis27/pantallas/componentes/componentes_statateful/boton_tipo_3.dart';
 import 'package:app_cetis27/pantallas/componentes/componentes_statateful/boton_tipo_4.dart';
@@ -16,12 +16,12 @@ import 'package:google_fonts/google_fonts.dart';
 import 'componentes_statateful/boton_tipo_1.dart';
 
 class Componentes {
-  static getCampoTextoTipo1(String placeholder, Icon icono, bool esPassword,
-      TextEditingController controlador) {
+  static Widget getCampoTextoTipo1(String placeholder, Icon icono,
+      bool esPassword, TextEditingController controlador) {
     return CampoTextoTipo1(placeholder, icono, esPassword, controlador);
   }
 
-  static getAreaTexto() {
+  static Widget getAreaTexto() {
     return AreaTexto();
   }
 

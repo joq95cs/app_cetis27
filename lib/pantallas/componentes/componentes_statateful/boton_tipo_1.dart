@@ -1,5 +1,6 @@
 import 'dart:developer';
 import 'package:app_cetis27/logica/login.dart';
+import 'package:app_cetis27/logica/modelos/usuario.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 
@@ -49,16 +50,19 @@ class _BotonTipo1State extends State<BotonTipo1> {
           ),
         ),
         onPressed: () {
+          Login login = Login(_controladores[0].text, _controladores[1].text);
+          Future<Usuario> usuario = login.verify();
           setState(() {
-            if (_f == 1) {
-              //LOGIN
-              Login login =
-                  Login(_controladores[0].text, _controladores[1].text);
-              Future<int> nivel = login.verify();
-              nivel.then((valor) {
-                log(nivel.toString());
-              });
-            }
+            usuario.then((datos) {
+              if (datos.existe) {
+                log(datos.nombre as String);
+                log(datos.apellidoPaterno as String);
+                log(datos.apellidoMaterno as String);
+                log((datos.nivel as int).toString());
+              } else {
+                log('Incorrecto');
+              }
+            });
           });
         },
       ),

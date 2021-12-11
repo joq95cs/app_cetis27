@@ -4,11 +4,13 @@ import 'package:app_cetis27/logica/constantes.dart';
 import 'package:http/http.dart' as http;
 import 'dart:convert';
 
+import 'modelos/usuario.dart';
+
 class Login {
   String _username;
   String _password;
   Login(this._username, this._password);
-  Future<int> verify() async {
+  Future<Usuario> verify() async {
     final respuesta = await http.post(
       Uri.parse('${Constantes.SERVER_URL}/curso_php/cetis_27/login.php'),
       body: {
@@ -18,16 +20,18 @@ class Login {
     );
 
     if (respuesta.statusCode == 200) {
-      var datos = respuesta.body;
-      if (datos.toString() != 'error') {
-        log(json.decode(datos).toString());
-        return json.decode(datos)['nivel'];
+      String datos = respuesta.body;
+      if (datos != 'error') {
+        return Usuario(true,
+            nombre: json.decode(datos)[0],
+            apellidoPaterno: json.decode(datos)[1],
+            apellidoMaterno: json.decode(datos)[2],
+            nivel: json.decode(datos)[3]);
       } else {
-        log('Usuario o contraseña incorrectos');
-        return 0;
+        return Usuario(false);
       }
     } else {
-      return 0;
+      return Usuario(false);
     }
   }
 }

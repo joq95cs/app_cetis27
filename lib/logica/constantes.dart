@@ -1,3 +1,3 @@
 class Constantes {
-  static const SERVER_URL = 'http://127.0.0.1';
+  static const SERVER_URL = 'http://192.168.0.3';
 }
