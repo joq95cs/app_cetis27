@@ -2,6 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 
 class AreaTexto extends StatelessWidget {
+  TextEditingController _controlador;
+  AreaTexto(this._controlador);
   @override
   Widget build(BuildContext context) {
     return Container(
@@ -9,6 +11,7 @@ class AreaTexto extends StatelessWidget {
         child: Padding(
           padding: EdgeInsets.all(10.0),
           child: TextField(
+            controller: _controlador,
             maxLines: 10,
             decoration: InputDecoration.collapsed(
               hintText: "Descripción...",

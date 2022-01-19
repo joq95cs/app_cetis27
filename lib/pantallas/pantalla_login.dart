@@ -1,7 +1,8 @@
+import 'package:app_cetis27/pantallas/componentes/componentes.dart';
 import 'package:flutter/material.dart';
-import 'componentes/componentes.dart';
 
 class PantallaLogin extends StatelessWidget {
+  static String ruta = '/pantallaLogin';
   TextEditingController _controladorUser = TextEditingController();
   TextEditingController _controladorPass = TextEditingController();
   @override
@@ -30,7 +31,10 @@ class PantallaLogin extends StatelessWidget {
                 _controladorPass,
               ),
               Componentes.getBotonTipo1(
-                  'INICIAR SESIÓN', [_controladorUser, _controladorPass], 1),
+                'INICIAR SESIÓN',
+                1,
+                controladores: [_controladorUser, _controladorPass],
+              ),
             ],
           ),
         ),

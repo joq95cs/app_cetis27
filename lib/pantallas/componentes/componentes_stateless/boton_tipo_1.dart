@@ -1,24 +1,22 @@
 import 'dart:developer';
+import 'package:app_cetis27/logica/funciones.dart';
 import 'package:app_cetis27/logica/login.dart';
+import 'package:app_cetis27/logica/modelos/reporte.dart';
 import 'package:app_cetis27/logica/modelos/usuario.dart';
+import 'package:app_cetis27/logica/nuevo_reporte.dart';
+import 'package:app_cetis27/logica/usuario_activo.dart';
+import 'package:app_cetis27/pantallas/pantalla_home_1.dart';
+import 'package:app_cetis27/pantallas/pantalla_home_2.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 
-class BotonTipo1 extends StatefulWidget {
+class BotonTipo1 extends StatelessWidget {
   String _texto;
-  List<TextEditingController> _controladores;
   int _f;
-  BotonTipo1(this._texto, this._controladores, this._f);
-  @override
-  State<BotonTipo1> createState() =>
-      _BotonTipo1State(_texto, _controladores, _f);
-}
+  List<TextEditingController>? controladores;
+  List<dynamic>? argumentos;
 
-class _BotonTipo1State extends State<BotonTipo1> {
-  String _texto;
-  List<TextEditingController> _controladores;
-  int _f;
-  _BotonTipo1State(this._texto, this._controladores, this._f);
+  BotonTipo1(this._texto, this._f, {this.controladores, this.argumentos});
   @override
   Widget build(BuildContext context) {
     return Container(
@@ -50,20 +48,13 @@ class _BotonTipo1State extends State<BotonTipo1> {
           ),
         ),
         onPressed: () {
-          Login login = Login(_controladores[0].text, _controladores[1].text);
-          Future<Usuario> usuario = login.verify();
-          setState(() {
-            usuario.then((datos) {
-              if (datos.existe) {
-                log(datos.nombre as String);
-                log(datos.apellidoPaterno as String);
-                log(datos.apellidoMaterno as String);
-                log((datos.nivel as int).toString());
-              } else {
-                log('Incorrecto');
-              }
-            });
-          });
+          if (_f == 1) {
+            //Opción 1 para el login
+            Funciones.login(context, controladores, argumentos);
+          } else if (_f == 2) {
+            //Opción 2 para agregar reporte
+            Funciones.agregarReporte(context, controladores, argumentos);
+          }
         },
       ),
     );

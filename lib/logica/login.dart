@@ -11,7 +11,7 @@ class Login {
   String _password;
   Login(this._username, this._password);
   Future<Usuario> verify() async {
-    final respuesta = await http.post(
+    var respuesta = await http.post(
       Uri.parse('${Constantes.SERVER_URL}/curso_php/cetis_27/login.php'),
       body: {
         'username': _username,
@@ -20,18 +20,21 @@ class Login {
     );
 
     if (respuesta.statusCode == 200) {
-      String datos = respuesta.body;
-      if (datos != 'error') {
-        return Usuario(true,
-            nombre: json.decode(datos)[0],
-            apellidoPaterno: json.decode(datos)[1],
-            apellidoMaterno: json.decode(datos)[2],
-            nivel: json.decode(datos)[3]);
+      if (respuesta.body != '"error"') {
+        var objetoJson = json.decode(respuesta.body);
+        return Usuario(
+          true,
+          id: objetoJson[0],
+          nombre: objetoJson[1],
+          apellidoPaterno: objetoJson[2],
+          apellidoMaterno: objetoJson[3],
+          nivel: objetoJson[4],
+        );
       } else {
         return Usuario(false);
       }
     } else {
-      return Usuario(false);
+      throw Exception();
     }
   }
 }

@@ -1,8 +1,8 @@
+import 'package:app_cetis27/pantallas/componentes/componentes.dart';
 import 'package:flutter/material.dart';
 
-import 'componentes/componentes.dart';
-
 class PantallaVistaReporte1 extends StatelessWidget {
+  static String ruta = '/pantallaVistaReporte1';
   @override
   Widget build(BuildContext context) {
     return SafeArea(

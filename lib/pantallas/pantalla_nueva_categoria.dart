@@ -1,9 +1,10 @@
+import 'package:app_cetis27/pantallas/componentes/componentes.dart';
 import 'package:flutter/material.dart';
 
-import 'componentes/componentes.dart';
-
 class PantallaNuevaCategoria extends StatelessWidget {
+  static String ruta = '/pantallaNuevaCategoria';
   TextEditingController _controladorNombre = TextEditingController();
+  TextEditingController _controladorDescripcion = TextEditingController();
   @override
   Widget build(BuildContext context) {
     return SafeArea(
@@ -21,7 +22,7 @@ class PantallaNuevaCategoria extends StatelessWidget {
                 children: [
                   Componentes.getCampoTextoTipo1(
                       'Nombre', Icon(Icons.edit), false, _controladorNombre),
-                  Componentes.getAreaTexto(),
+                  Componentes.getAreaTexto(_controladorDescripcion),
                   Row(
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     children: [
@@ -48,7 +49,7 @@ class PantallaNuevaCategoria extends StatelessWidget {
               Container(
                 margin: EdgeInsets.only(bottom: 15.0),
                 alignment: Alignment.bottomCenter,
-                child: Componentes.getBotonTipo1('ENVIAR', [], 0),
+                child: Componentes.getBotonTipo1('ENVIAR', 0),
               )
             ],
           ),

@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
-import '../componentes.dart';
 
 class CardTipo3 extends StatelessWidget {
   @override

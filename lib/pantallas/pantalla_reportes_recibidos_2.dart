@@ -1,8 +1,9 @@
+import 'package:app_cetis27/pantallas/componentes/componentes.dart';
+import 'package:app_cetis27/pantallas/temporal/reportes.dart';
 import 'package:flutter/material.dart';
-import 'componentes/componentes.dart';
-import 'temporal/reportes.dart';
 
 class PantallaReportesRecibidos2 extends StatelessWidget {
+  static String ruta = '/pantallaReportesRecibidos2';
   @override
   Widget build(BuildContext context) {
     return SafeArea(

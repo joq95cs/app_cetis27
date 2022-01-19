@@ -1,9 +1,12 @@
+import 'package:app_cetis27/logica/modelos/usuario.dart';
+import 'package:app_cetis27/logica/usuario_activo.dart';
+import 'package:app_cetis27/pantallas/componentes/componentes.dart';
 import 'package:flutter/material.dart';
 
-import 'componentes/componentes.dart';
-
 class PantallaNuevoReporte extends StatelessWidget {
+  static String ruta = '/pantallaNuevoReporte';
   TextEditingController _controladorAsunto = TextEditingController();
+  TextEditingController _controladorDescripcion = TextEditingController();
   @override
   Widget build(BuildContext context) {
     return SafeArea(
@@ -25,7 +28,7 @@ class PantallaNuevoReporte extends StatelessWidget {
                     false,
                     _controladorAsunto,
                   ),
-                  Componentes.getAreaTexto(),
+                  Componentes.getAreaTexto(_controladorDescripcion),
                   Row(
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     children: [
@@ -60,14 +63,19 @@ class PantallaNuevoReporte extends StatelessWidget {
                   ),
                   Container(
                     child: Componentes.getBotonTipo2('Agregar foto',
-                        Icons.camera_enhance_outlined, 180, 30, 15),
+                        Icons.camera_enhance_outlined, 180, 30, 15, 8),
                   ),
                 ],
               ),
               Container(
                 margin: EdgeInsets.only(bottom: 15.0),
                 alignment: Alignment.bottomCenter,
-                child: Componentes.getBotonTipo1('ENVIAR', [], 0),
+                child: Componentes.getBotonTipo1(
+                  'ENVIAR',
+                  2,
+                  controladores: [_controladorAsunto, _controladorDescripcion],
+                  argumentos: [UsuarioActivo.usuario],
+                ),
               )
             ],
           ),

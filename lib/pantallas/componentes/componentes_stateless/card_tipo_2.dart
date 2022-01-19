@@ -1,8 +1,7 @@
+import 'package:app_cetis27/pantallas/componentes/componentes.dart';
 import 'package:app_cetis27/pantallas/temporal/reportes.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
-
-import '../componentes.dart';
 
 class CardTipo2 extends StatelessWidget {
   int _index;
