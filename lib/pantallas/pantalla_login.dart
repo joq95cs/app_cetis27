@@ -1,3 +1,4 @@
+import 'package:app_cetis27/logica/argumentos.dart';
 import 'package:app_cetis27/pantallas/componentes/componentes.dart';
 import 'package:flutter/material.dart';
 
@@ -7,6 +8,7 @@ class PantallaLogin extends StatelessWidget {
   TextEditingController _controladorPass = TextEditingController();
   @override
   Widget build(BuildContext context) {
+    Argumentos.argsLogin = [_controladorUser, _controladorPass];
     return SafeArea(
       child: Scaffold(
         resizeToAvoidBottomInset: false,
@@ -30,11 +32,7 @@ class PantallaLogin extends StatelessWidget {
                 false,
                 _controladorPass,
               ),
-              Componentes.getBotonTipo1(
-                'INICIAR SESIÓN',
-                1,
-                controladores: [_controladorUser, _controladorPass],
-              ),
+              Componentes.getBotonTipo1('INICIAR SESIÓN', 1),
             ],
           ),
         ),

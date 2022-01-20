@@ -1,22 +1,22 @@
 import 'dart:developer';
+import 'package:app_cetis27/logica/modelos/reporte.dart';
+import 'package:app_cetis27/logica/reportes_enviados.dart';
 import 'package:app_cetis27/pantallas/pantalla_nuevo_reporte.dart';
+import 'package:app_cetis27/pantallas/pantalla_reportes_enviados_1.dart';
 import 'package:app_cetis27/pantallas/pantalla_reportes_enviados_2.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 
 class BotonTipo2 extends StatelessWidget {
   String _texto;
+  int _f;
   IconData _icono;
   double _ancho;
   double _alto;
   double _mb;
-  int _f;
-  List<TextEditingController>? controladores;
-  List<dynamic>? argumentos;
 
   BotonTipo2(
-      this._texto, this._icono, this._ancho, this._alto, this._mb, this._f,
-      {this.controladores, this.argumentos});
+      this._texto, this._f, this._icono, this._ancho, this._alto, this._mb);
   @override
   Widget build(BuildContext context) {
     return Container(
@@ -59,7 +59,10 @@ class BotonTipo2 extends StatelessWidget {
           } else if (_f == 7) {
           } else if (_f == 8) {
           } else if (_f == 9) {
-            Navigator.pushNamed(context, PantallaReportesEnviados2.ruta);
+            ReportesEnviados().obtener().then((futuro) {
+              ReportesEnviados.reportesEnviados = futuro;
+              Navigator.pushNamed(context, PantallaReportesEnviados2.ruta);
+            });
           }
         },
       ),

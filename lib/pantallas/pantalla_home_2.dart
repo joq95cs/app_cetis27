@@ -24,17 +24,28 @@ class PantallaHome2 extends StatelessWidget {
                 children: [
                   Componentes.getBotonTipo2(
                     'Crear reporte',
+                    1,
                     Icons.description,
                     300,
                     50,
                     20,
-                    1,
-                    argumentos: [UsuarioActivo.usuario],
                   ),
                   Componentes.getBotonTipo2(
-                      'Crear categoría', Icons.category, 300, 50, 20, 2),
+                    'Crear categoría',
+                    8,
+                    Icons.category,
+                    300,
+                    50,
+                    20,
+                  ),
                   Componentes.getBotonTipo2(
-                      'Reportes enviados', Icons.report, 300, 50, 20, 3),
+                    'Reportes enviados',
+                    9,
+                    Icons.report,
+                    300,
+                    50,
+                    20,
+                  ),
                 ],
               ),
               Container(

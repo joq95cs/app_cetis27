@@ -1,3 +1,4 @@
+import 'package:app_cetis27/logica/modelos/reporte.dart';
 import 'package:app_cetis27/pantallas/componentes/componentes.dart';
 import 'package:app_cetis27/pantallas/temporal/reportes.dart';
 import 'package:flutter/material.dart';
@@ -5,7 +6,8 @@ import 'package:google_fonts/google_fonts.dart';
 
 class CardTipo5 extends StatelessWidget {
   int _index;
-  CardTipo5(this._index);
+  Reporte _reporte;
+  CardTipo5(this._index, this._reporte);
   @override
   Widget build(BuildContext context) {
     return Card(
@@ -18,7 +20,7 @@ class CardTipo5 extends StatelessWidget {
           ListTile(
             contentPadding: EdgeInsets.fromLTRB(15, 10, 25, 0),
             title: Text(
-              Reportes.enviados[_index].asunto,
+              _reporte.asunto as String,
               style: GoogleFonts.roboto(
                 textStyle: TextStyle(
                   fontSize: 16,
@@ -28,7 +30,7 @@ class CardTipo5 extends StatelessWidget {
               ),
             ),
             subtitle: Text(
-              '${Reportes.enviados[_index].descripcion}\nServicios escolares',
+              '${_reporte.descripcion as String}\nServicios escolares',
               style: GoogleFonts.roboto(
                 textStyle: TextStyle(
                   fontSize: 16,

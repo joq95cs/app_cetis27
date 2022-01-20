@@ -1,3 +1,4 @@
+import 'package:app_cetis27/logica/argumentos.dart';
 import 'package:app_cetis27/logica/modelos/usuario.dart';
 import 'package:app_cetis27/logica/usuario_activo.dart';
 import 'package:app_cetis27/pantallas/componentes/componentes.dart';
@@ -9,6 +10,8 @@ class PantallaNuevoReporte extends StatelessWidget {
   TextEditingController _controladorDescripcion = TextEditingController();
   @override
   Widget build(BuildContext context) {
+    Argumentos.argsNuevoReporte = [_controladorAsunto, _controladorDescripcion];
+
     return SafeArea(
       child: Scaffold(
         resizeToAvoidBottomInset: false,
@@ -62,8 +65,14 @@ class PantallaNuevoReporte extends StatelessWidget {
                     ],
                   ),
                   Container(
-                    child: Componentes.getBotonTipo2('Agregar foto',
-                        Icons.camera_enhance_outlined, 180, 30, 15, 8),
+                    child: Componentes.getBotonTipo2(
+                      'Agregar foto',
+                      10,
+                      Icons.camera_enhance_outlined,
+                      180,
+                      30,
+                      15,
+                    ),
                   ),
                 ],
               ),
@@ -73,8 +82,6 @@ class PantallaNuevoReporte extends StatelessWidget {
                 child: Componentes.getBotonTipo1(
                   'ENVIAR',
                   2,
-                  controladores: [_controladorAsunto, _controladorDescripcion],
-                  argumentos: [UsuarioActivo.usuario],
                 ),
               )
             ],

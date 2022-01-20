@@ -1,3 +1,4 @@
+import 'package:app_cetis27/logica/modelos/reporte.dart';
 import 'package:app_cetis27/pantallas/componentes/componentes_statateful/desplegable.dart';
 import 'package:app_cetis27/pantallas/componentes/componentes_stateless/area_texto.dart';
 import 'package:app_cetis27/pantallas/componentes/componentes_stateless/barra_superior.dart';
@@ -25,28 +26,19 @@ class Componentes {
     return AreaTexto(controlador);
   }
 
-  static BotonTipo1 getBotonTipo1(String texto, int f,
-      {List<TextEditingController>? controladores, List<dynamic>? argumentos}) {
-    return BotonTipo1(
-      texto,
-      f,
-      controladores: controladores,
-      argumentos: argumentos,
-    );
+  static BotonTipo1 getBotonTipo1(String texto, int f) {
+    return BotonTipo1(texto, f);
   }
 
-  static BotonTipo2 getBotonTipo2(
-      String texto, IconData icono, double ancho, double alto, double mb, int f,
-      {List<TextEditingController>? controladores, List<dynamic>? argumentos}) {
+  static BotonTipo2 getBotonTipo2(String texto, int f, IconData icono,
+      double ancho, double alto, double mb) {
     return BotonTipo2(
       texto,
+      f,
       icono,
       ancho,
       alto,
       mb,
-      f,
-      controladores: controladores,
-      argumentos: argumentos,
     );
   }
 
@@ -83,8 +75,8 @@ class Componentes {
     return CardTipo4();
   }
 
-  static CardTipo5 getCardTipo5(int index) {
-    return CardTipo5(index);
+  static CardTipo5 getCardTipo5(int index, Reporte reporte) {
+    return CardTipo5(index, reporte);
   }
 
   static AppBar getBarraSuperior(String titulo) {

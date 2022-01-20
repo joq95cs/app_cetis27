@@ -1,5 +1,6 @@
 import 'dart:developer';
 
+import 'package:app_cetis27/logica/argumentos.dart';
 import 'package:app_cetis27/logica/login.dart';
 import 'package:app_cetis27/logica/modelos/reporte.dart';
 import 'package:app_cetis27/logica/modelos/usuario.dart';
@@ -10,9 +11,9 @@ import 'package:app_cetis27/pantallas/pantalla_home_2.dart';
 import 'package:flutter/material.dart';
 
 class Funciones {
-  static void login(BuildContext context,
-      List<TextEditingController>? controladores, List<dynamic>? argumentos) {
-    Login login = Login(controladores![0].text, controladores![1].text);
+  static void login(BuildContext context) {
+    Login login =
+        Login(Argumentos.argsLogin[0].text, Argumentos.argsLogin[1].text);
     Future<Usuario> usuarioRecibido = login.verify();
     usuarioRecibido.then(
       (futuro) {
@@ -46,14 +47,13 @@ class Funciones {
     );
   }
 
-  static void agregarReporte(BuildContext context,
-      List<TextEditingController>? controladores, List<dynamic>? argumentos) {
+  static void agregarReporte(BuildContext context) {
     NuevoReporte nuevoReporte = NuevoReporte(
       Reporte(
-        asunto: controladores![0].text,
-        descripcion: controladores![1].text,
+        asunto: Argumentos.argsNuevoReporte[0].text,
+        descripcion: Argumentos.argsNuevoReporte[1].text,
         foto: 'foto.png',
-        usuario: argumentos![0].id,
+        usuario: UsuarioActivo.usuario.id,
         categoria: 4,
         espacio: 9,
         estatus: 'Pendiente',
@@ -71,6 +71,4 @@ class Funciones {
       },
     );
   }
-
-  static void nuevoReporte() {}
 }

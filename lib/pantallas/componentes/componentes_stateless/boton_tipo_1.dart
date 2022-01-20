@@ -1,4 +1,5 @@
 import 'dart:developer';
+import 'package:app_cetis27/logica/argumentos.dart';
 import 'package:app_cetis27/logica/funciones.dart';
 import 'package:app_cetis27/logica/login.dart';
 import 'package:app_cetis27/logica/modelos/reporte.dart';
@@ -13,10 +14,8 @@ import 'package:google_fonts/google_fonts.dart';
 class BotonTipo1 extends StatelessWidget {
   String _texto;
   int _f;
-  List<TextEditingController>? controladores;
-  List<dynamic>? argumentos;
 
-  BotonTipo1(this._texto, this._f, {this.controladores, this.argumentos});
+  BotonTipo1(this._texto, this._f);
   @override
   Widget build(BuildContext context) {
     return Container(
@@ -49,11 +48,9 @@ class BotonTipo1 extends StatelessWidget {
         ),
         onPressed: () {
           if (_f == 1) {
-            //Opción 1 para el login
-            Funciones.login(context, controladores, argumentos);
+            Funciones.login(context);
           } else if (_f == 2) {
-            //Opción 2 para agregar reporte
-            Funciones.agregarReporte(context, controladores, argumentos);
+            Funciones.agregarReporte(context);
           }
         },
       ),
