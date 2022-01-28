@@ -1,8 +1,10 @@
+import 'package:app_cetis27/logica/modelos/reporte.dart';
 import 'package:app_cetis27/pantallas/componentes/componentes.dart';
 import 'package:app_cetis27/pantallas/temporal/reportes.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 
+//REPORTES RECIBIDOS
 class CardTipo1 extends StatelessWidget {
   int _index;
   CardTipo1(this._index);
@@ -44,13 +46,13 @@ class CardTipo1 extends StatelessWidget {
             mainAxisAlignment: MainAxisAlignment.end,
             children: [
               Componentes.getBotonTipo4(
-                  'Ver', Colors.blue, 16, FontWeight.w400),
+                  'Ver', 0, Colors.blue, 16, FontWeight.w400, Reporte()),
               Componentes.getBotonTipo4(
-                  'Aceptar', Colors.blue, 16, FontWeight.w400),
+                  'Aceptar', 0, Colors.blue, 16, FontWeight.w400, Reporte()),
               Componentes.getBotonTipo4(
-                  'Reenviar', Colors.blue, 16, FontWeight.w400),
+                  'Reenviar', 0, Colors.blue, 16, FontWeight.w400, Reporte()),
               Componentes.getBotonTipo4(
-                  'Rechazar', Colors.red, 16, FontWeight.w400),
+                  'Rechazar', 0, Colors.red, 16, FontWeight.w400, Reporte()),
             ],
           ),
         ],

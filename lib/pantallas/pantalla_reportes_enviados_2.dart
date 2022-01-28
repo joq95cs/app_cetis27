@@ -12,8 +12,6 @@ class PantallaReportesEnviados2 extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    log(ReportesEnviados.reportesEnviados.length.toString());
-    log(ReportesEnviados.reportesEnviados[5].asunto.toString());
     return SafeArea(
       child: Scaffold(
         appBar: Componentes.getBarraSuperior('Reportes enviados'),
@@ -21,10 +19,10 @@ class PantallaReportesEnviados2 extends StatelessWidget {
           children: [
             Expanded(
               child: ListView.builder(
-                itemCount: 6,
+                itemCount: ReportesEnviados.reportesEnviados.length,
                 itemBuilder: (context, index) {
-                  return Componentes.getCardTipo5(
-                      index, ReportesEnviados.reportesEnviados[index]);
+                  return Componentes.getCardTipo6(
+                      ReportesEnviados.reportesEnviados[index]);
                 },
               ),
             ),

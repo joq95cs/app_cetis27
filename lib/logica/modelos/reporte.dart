@@ -1,3 +1,5 @@
+import 'package:flutter/material.dart';
+
 class Reporte {
   int? id;
   String? asunto;
@@ -8,6 +10,7 @@ class Reporte {
   int? categoria;
   int? espacio;
   String? estatus;
+  Icon? icono;
 
   Reporte({
     this.id,

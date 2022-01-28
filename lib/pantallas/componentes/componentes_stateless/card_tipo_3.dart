@@ -1,6 +1,8 @@
+import 'package:app_cetis27/logica/argumentos.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 
+//DESCRIPCIÓN DE REPORTE
 class CardTipo3 extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
@@ -16,7 +18,7 @@ class CardTipo3 extends StatelessWidget {
             Padding(
               padding: EdgeInsets.only(bottom: 10.0),
               child: Text(
-                'Asunto del reporte',
+                Argumentos.argsReporteActual.asunto as String,
                 style: GoogleFonts.roboto(
                   textStyle: TextStyle(
                     fontSize: 18,
@@ -37,7 +39,7 @@ class CardTipo3 extends StatelessWidget {
                   ),
                 ),
                 Text(
-                  'Mi espacio',
+                  (Argumentos.argsReporteActual.espacio as int).toString(),
                   style: GoogleFonts.roboto(
                     textStyle: TextStyle(
                       fontSize: 16,
@@ -59,7 +61,7 @@ class CardTipo3 extends StatelessWidget {
                   ),
                 ),
                 Text(
-                  'Mi usuario',
+                  (Argumentos.argsReporteActual.usuario as int).toString(),
                   style: GoogleFonts.roboto(
                     textStyle: TextStyle(
                       fontSize: 16,
@@ -81,7 +83,7 @@ class CardTipo3 extends StatelessWidget {
                   ),
                 ),
                 Text(
-                  'Mi categoría',
+                  (Argumentos.argsReporteActual.categoria as int).toString(),
                   style: GoogleFonts.roboto(
                     textStyle: TextStyle(
                       fontSize: 16,
@@ -106,7 +108,7 @@ class CardTipo3 extends StatelessWidget {
             Padding(
               padding: EdgeInsets.only(top: 10.0),
               child: Text(
-                'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Euismod quis viverra nibh cras pulvinar. Faucibus a pellentesque sit amet porttitor eget dolor. Consectetur libero id faucibus nisl tincidunt. Nisl tincidunt eget nullam non nisi est sit amet. Sed faucibus turpis in eu mi bibendum neque egestas. Ultricies integer quis auctor elit sed.',
+                Argumentos.argsReporteActual.descripcion as String,
                 style: GoogleFonts.roboto(
                   textStyle: TextStyle(
                     fontSize: 16,

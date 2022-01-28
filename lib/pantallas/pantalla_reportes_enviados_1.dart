@@ -23,7 +23,7 @@ class PantallaReportesEnviados1 extends StatelessWidget {
               child: ListView.builder(
                 itemCount: Reportes.enviados.length,
                 itemBuilder: (context, index) {
-                  return Componentes.getCardTipo5(index, Reporte());
+                  return Componentes.getCardTipo5(Reporte());
                 },
               ),
             ),

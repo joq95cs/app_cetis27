@@ -1,6 +1,9 @@
 import 'dart:developer';
+import 'package:app_cetis27/logica/funciones.dart';
+import 'package:app_cetis27/logica/modelos/categoria.dart';
 import 'package:app_cetis27/logica/modelos/reporte.dart';
 import 'package:app_cetis27/logica/reportes_enviados.dart';
+import 'package:app_cetis27/pantallas/pantalla_nueva_categoria.dart';
 import 'package:app_cetis27/pantallas/pantalla_nuevo_reporte.dart';
 import 'package:app_cetis27/pantallas/pantalla_reportes_enviados_1.dart';
 import 'package:app_cetis27/pantallas/pantalla_reportes_enviados_2.dart';
@@ -50,7 +53,7 @@ class BotonTipo2 extends StatelessWidget {
         ),
         onPressed: () {
           if (_f == 1) {
-            Navigator.pushNamed(context, PantallaNuevoReporte.ruta);
+            Funciones.irPantallaNuevoReporte(context);
           } else if (_f == 2) {
           } else if (_f == 3) {
           } else if (_f == 4) {
@@ -58,11 +61,11 @@ class BotonTipo2 extends StatelessWidget {
           } else if (_f == 6) {
           } else if (_f == 7) {
           } else if (_f == 8) {
+            //Pantalla 2, nueva categoría
+            Funciones.irPantallaNuevaCategoria(context);
           } else if (_f == 9) {
-            ReportesEnviados().obtener().then((futuro) {
-              ReportesEnviados.reportesEnviados = futuro;
-              Navigator.pushNamed(context, PantallaReportesEnviados2.ruta);
-            });
+            //Pantalla 2, ver reportes
+            Funciones.verReportesEnviados(context);
           }
         },
       ),

@@ -1,3 +1,4 @@
+import 'package:app_cetis27/logica/argumentos.dart';
 import 'package:app_cetis27/pantallas/componentes/componentes.dart';
 import 'package:flutter/material.dart';
 
@@ -7,6 +8,11 @@ class PantallaNuevaCategoria extends StatelessWidget {
   TextEditingController _controladorDescripcion = TextEditingController();
   @override
   Widget build(BuildContext context) {
+    Argumentos.argsNuevaCategoria = [
+      _controladorNombre,
+      _controladorDescripcion
+    ];
+
     return SafeArea(
       child: Scaffold(
         resizeToAvoidBottomInset: false,
@@ -21,15 +27,22 @@ class PantallaNuevaCategoria extends StatelessWidget {
               Column(
                 children: [
                   Componentes.getCampoTextoTipo1(
-                      'Nombre', Icon(Icons.edit), false, _controladorNombre),
-                  Componentes.getAreaTexto(_controladorDescripcion),
+                    'Nombre',
+                    Icon(Icons.edit),
+                    false,
+                    _controladorNombre,
+                  ),
+                  Componentes.getAreaTexto(
+                    _controladorDescripcion,
+                  ),
                   Row(
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     children: [
                       Componentes.getEtiqueta('Espacio'),
                       Componentes.getDesplegable(
-                          ['Biblioteca', 'Cafetería', 'Baños', 'Otro'],
-                          'Biblioteca'),
+                        ['Biblioteca', 'Cafetería', 'Baños', 'Otro'],
+                        'Biblioteca',
+                      ),
                     ],
                   ),
                   Row(
@@ -49,7 +62,7 @@ class PantallaNuevaCategoria extends StatelessWidget {
               Container(
                 margin: EdgeInsets.only(bottom: 15.0),
                 alignment: Alignment.bottomCenter,
-                child: Componentes.getBotonTipo1('ENVIAR', 0),
+                child: Componentes.getBotonTipo1('ENVIAR', 3),
               )
             ],
           ),

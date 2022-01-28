@@ -1,3 +1,4 @@
+import 'package:app_cetis27/logica/constantes.dart';
 import 'package:app_cetis27/logica/modelos/reporte.dart';
 import 'package:app_cetis27/pantallas/componentes/componentes.dart';
 import 'package:app_cetis27/pantallas/temporal/reportes.dart';
@@ -5,11 +6,19 @@ import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 
 class CardTipo5 extends StatelessWidget {
-  int _index;
   Reporte _reporte;
-  CardTipo5(this._index, this._reporte);
+
+  CardTipo5(this._reporte);
   @override
   Widget build(BuildContext context) {
+    Icon icono;
+    if (_reporte.estatus == 'Atendido') {
+      icono = Constantes.ICONOS[0];
+    } else if (_reporte.estatus == 'Pendiente') {
+      icono = Constantes.ICONOS[1];
+    } else {
+      icono = Constantes.ICONOS[2];
+    }
     return Card(
       shape: RoundedRectangleBorder(
         borderRadius: BorderRadius.circular(15),
@@ -40,17 +49,17 @@ class CardTipo5 extends StatelessWidget {
               ),
             ),
             isThreeLine: true,
-            leading: Reportes.enviados[_index].icono,
+            leading: icono,
           ),
           Row(
             mainAxisAlignment: MainAxisAlignment.end,
             children: [
               Componentes.getBotonTipo4(
-                  'Ver', Colors.blue, 16, FontWeight.w400),
+                  'Ver', 1, Colors.blue, 16, FontWeight.w400, Reporte()),
               Componentes.getBotonTipo4(
-                  'Editar', Colors.blue, 16, FontWeight.w400),
+                  'Editar', 2, Colors.blue, 16, FontWeight.w400, Reporte()),
               Componentes.getBotonTipo4(
-                  'Eliminar', Colors.red, 16, FontWeight.w400),
+                  'Eliminar', 3, Colors.red, 16, FontWeight.w400, Reporte()),
             ],
           ),
         ],

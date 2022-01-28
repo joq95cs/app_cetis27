@@ -12,6 +12,7 @@ import 'package:app_cetis27/pantallas/componentes/componentes_stateless/card_tip
 import 'package:app_cetis27/pantallas/componentes/componentes_stateless/card_tipo_3.dart';
 import 'package:app_cetis27/pantallas/componentes/componentes_stateless/card_tipo_4.dart';
 import 'package:app_cetis27/pantallas/componentes/componentes_stateless/card_tipo_5.dart';
+import 'package:app_cetis27/pantallas/componentes/componentes_stateless/card_tipo_6.dart';
 import 'package:app_cetis27/pantallas/componentes/componentes_stateless/etiqueta.dart';
 import 'package:app_cetis27/pantallas/componentes/componentes_stateless/logo.dart';
 import 'package:flutter/material.dart';
@@ -47,8 +48,8 @@ class Componentes {
   }
 
   static BotonTipo4 getBotonTipo4(
-      String texto, Color c, double fs, FontWeight fw) {
-    return BotonTipo4(texto, c, fs, fw);
+      String texto, int f, Color c, double fs, FontWeight fw, Reporte reporte) {
+    return BotonTipo4(texto, f, c, fs, fw, reporte);
   }
 
   static Logo getLogo() {
@@ -75,8 +76,12 @@ class Componentes {
     return CardTipo4();
   }
 
-  static CardTipo5 getCardTipo5(int index, Reporte reporte) {
-    return CardTipo5(index, reporte);
+  static CardTipo5 getCardTipo5(Reporte reporte) {
+    return CardTipo5(reporte);
+  }
+
+  static CardTipo6 getCardTipo6(Reporte reporte) {
+    return CardTipo6(reporte);
   }
 
   static AppBar getBarraSuperior(String titulo) {

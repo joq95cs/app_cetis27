@@ -1,3 +1,5 @@
+import 'package:app_cetis27/logica/argumentos.dart';
+import 'package:app_cetis27/logica/modelos/reporte.dart';
 import 'package:app_cetis27/pantallas/componentes/componentes.dart';
 import 'package:flutter/material.dart';
 
@@ -18,23 +20,25 @@ class PantallaVistaReporte2 extends StatelessWidget {
             children: [
               Container(
                 height: 350,
+                //height: 200,
                 child: Componentes.getCardTipo3(),
               ),
               Container(
-                height: 248,
+                //height: 248,
+                height: 100,
                 child: Componentes.getCardTipo4(),
-              ),
-              Row(
-                mainAxisAlignment: MainAxisAlignment.spaceAround,
-                children: [
-                  Componentes.getBotonTipo4(
-                      'Editar', Colors.green, 18, FontWeight.w800),
-                  Componentes.getBotonTipo4(
-                      'Eliminar', Colors.red, 18, FontWeight.w800),
-                ],
               ),
             ],
           ),
+        ),
+        bottomSheet: Row(
+          mainAxisAlignment: MainAxisAlignment.spaceAround,
+          children: [
+            Componentes.getBotonTipo4('Editar', 4, Colors.green, 18,
+                FontWeight.w800, Argumentos.argsReporteActual),
+            Componentes.getBotonTipo4('Eliminar', 5, Colors.red, 18,
+                FontWeight.w800, Argumentos.argsReporteActual),
+          ],
         ),
       ),
     );

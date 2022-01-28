@@ -13,47 +13,53 @@ class PantallaHome2 extends StatelessWidget {
       child: Scaffold(
         appBar: Componentes.getBarraSuperior(
             'Bienvenido(a): ${UsuarioActivo.usuario.nombre}'),
-        body: Container(
-          padding: EdgeInsets.symmetric(horizontal: 40),
-          color: Color(0xFFfafafa),
-          width: double.infinity,
-          child: Stack(
-            children: [
-              Column(
-                mainAxisAlignment: MainAxisAlignment.center,
+        body: Row(
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: [
+            Container(
+              //padding: EdgeInsets.symmetric(horizontal: 40),
+              color: Color(0xFFfafafa),
+              //width: double.infinity,
+              width: 300,
+              child: Stack(
                 children: [
-                  Componentes.getBotonTipo2(
-                    'Crear reporte',
-                    1,
-                    Icons.description,
-                    300,
-                    50,
-                    20,
+                  Column(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    children: [
+                      Componentes.getBotonTipo2(
+                        'Crear reporte',
+                        1,
+                        Icons.description,
+                        300,
+                        50,
+                        20,
+                      ),
+                      Componentes.getBotonTipo2(
+                        'Crear categoría',
+                        8,
+                        Icons.category,
+                        300,
+                        50,
+                        20,
+                      ),
+                      Componentes.getBotonTipo2(
+                        'Reportes enviados',
+                        9,
+                        Icons.report,
+                        300,
+                        50,
+                        20,
+                      ),
+                    ],
                   ),
-                  Componentes.getBotonTipo2(
-                    'Crear categoría',
-                    8,
-                    Icons.category,
-                    300,
-                    50,
-                    20,
-                  ),
-                  Componentes.getBotonTipo2(
-                    'Reportes enviados',
-                    9,
-                    Icons.report,
-                    300,
-                    50,
-                    20,
-                  ),
+                  Container(
+                    alignment: Alignment.bottomCenter,
+                    child: Componentes.getBotonTipo3('Cerrar sesión'),
+                  )
                 ],
               ),
-              Container(
-                alignment: Alignment.bottomCenter,
-                child: Componentes.getBotonTipo3('Cerrar sesión'),
-              )
-            ],
-          ),
+            ),
+          ],
         ),
       ),
     );

@@ -1,3 +1,4 @@
+import 'package:app_cetis27/logica/modelos/reporte.dart';
 import 'package:app_cetis27/pantallas/componentes/componentes.dart';
 import 'package:flutter/material.dart';
 
@@ -27,12 +28,12 @@ class PantallaVistaReporte1 extends StatelessWidget {
               Row(
                 mainAxisAlignment: MainAxisAlignment.spaceAround,
                 children: [
-                  Componentes.getBotonTipo4(
-                      'Aceptar', Colors.green, 18, FontWeight.w800),
-                  Componentes.getBotonTipo4(
-                      'Reenviar', Colors.green, 18, FontWeight.w800),
-                  Componentes.getBotonTipo4(
-                      'Rechazar', Colors.red, 18, FontWeight.w800),
+                  Componentes.getBotonTipo4('Aceptar', 0, Colors.green, 18,
+                      FontWeight.w800, Reporte()),
+                  Componentes.getBotonTipo4('Reenviar', 0, Colors.green, 18,
+                      FontWeight.w800, Reporte()),
+                  Componentes.getBotonTipo4('Rechazar', 0, Colors.red, 18,
+                      FontWeight.w800, Reporte()),
                 ],
               ),
             ],
