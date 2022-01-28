@@ -3,14 +3,19 @@ import 'package:app_cetis27/logica/modelos/usuario.dart';
 import 'package:app_cetis27/logica/usuario_activo.dart';
 import 'package:app_cetis27/pantallas/componentes/componentes.dart';
 import 'package:flutter/material.dart';
+import 'package:google_fonts/google_fonts.dart';
 
 class PantallaNuevoReporte extends StatelessWidget {
   static String ruta = '/pantallaNuevoReporte';
   TextEditingController _controladorAsunto = TextEditingController();
   TextEditingController _controladorDescripcion = TextEditingController();
+
   @override
   Widget build(BuildContext context) {
-    Argumentos.argsNuevoReporte = [_controladorAsunto, _controladorDescripcion];
+    Argumentos.argsNuevoReporte = [
+      _controladorAsunto,
+      _controladorDescripcion,
+    ];
 
     return SafeArea(
       child: Scaffold(
@@ -37,31 +42,43 @@ class PantallaNuevoReporte extends StatelessWidget {
                     children: [
                       Componentes.getEtiqueta('Espacio'),
                       Componentes.getDesplegable(
-                          ['Biblioteca', 'Cafetería', 'Baños', 'Otro'],
-                          'Biblioteca'),
+                        [
+                          'Biblioteca',
+                          'Cafetería',
+                          'Baños',
+                          'Otro',
+                        ],
+                        'Biblioteca',
+                      ),
                     ],
                   ),
                   Row(
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     children: [
                       Componentes.getEtiqueta('Subespacio'),
-                      Componentes.getDesplegable([
+                      Componentes.getDesplegable(
+                        [
+                          'Biblioteca principal',
+                          'Cafetería principal',
+                          'Baños principales',
+                          'Otro'
+                        ],
                         'Biblioteca principal',
-                        'Cafetería principal',
-                        'Baños principales',
-                        'Otro'
-                      ], 'Biblioteca principal'),
+                      ),
                     ],
                   ),
                   Row(
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     children: [
                       Componentes.getEtiqueta('Categoría'),
-                      Componentes.getDesplegable([
+                      Componentes.getDesplegable(
+                        [
+                          'Categoría 1',
+                          'Categoría 2',
+                          'Categoría 3',
+                        ],
                         'Categoría 1',
-                        'Categoría 2',
-                        'Categoría 3',
-                      ], 'Categoría 1'),
+                      ),
                     ],
                   ),
                   Container(
@@ -83,7 +100,7 @@ class PantallaNuevoReporte extends StatelessWidget {
                   'ENVIAR',
                   2,
                 ),
-              )
+              ),
             ],
           ),
         ),

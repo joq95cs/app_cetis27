@@ -49,12 +49,15 @@ class PantallaNuevaCategoria extends StatelessWidget {
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     children: [
                       Componentes.getEtiqueta('Subespacio'),
-                      Componentes.getDesplegable([
+                      Componentes.getDesplegable(
+                        [
+                          'Biblioteca principal',
+                          'Cafetería principal',
+                          'Baños principales',
+                          'Otro'
+                        ],
                         'Biblioteca principal',
-                        'Cafetería principal',
-                        'Baños principales',
-                        'Otro'
-                      ], 'Biblioteca principal'),
+                      ),
                     ],
                   ),
                 ],
@@ -63,7 +66,7 @@ class PantallaNuevaCategoria extends StatelessWidget {
                 margin: EdgeInsets.only(bottom: 15.0),
                 alignment: Alignment.bottomCenter,
                 child: Componentes.getBotonTipo1('ENVIAR', 3),
-              )
+              ),
             ],
           ),
         ),

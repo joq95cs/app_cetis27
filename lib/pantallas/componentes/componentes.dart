@@ -88,7 +88,10 @@ class Componentes {
     return BarraSuperior.getBarraSuperior(titulo);
   }
 
-  static Desplegable getDesplegable(List<String> valores, String base) {
+  static Desplegable getDesplegable(
+    List<String> valores,
+    String base,
+  ) {
     return Desplegable(valores, base);
   }
 }

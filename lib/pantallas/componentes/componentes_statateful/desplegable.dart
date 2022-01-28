@@ -1,19 +1,30 @@
+import 'dart:developer';
+
+import 'package:app_cetis27/pantallas/pantalla_nuevo_reporte.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 
 class Desplegable extends StatefulWidget {
   List<String> _valores;
   String _base;
+
   Desplegable(this._valores, this._base);
   @override
   State<Desplegable> createState() => _DesplegableState();
 }
 
 class _DesplegableState extends State<Desplegable> {
+  String _actual = '';
+
+  @override
+  void initState() {
+    _actual = widget._base;
+  }
+
   @override
   Widget build(BuildContext context) {
     return DropdownButton<String>(
-      value: widget._base,
+      value: _actual,
       icon: Icon(Icons.arrow_downward),
       iconSize: 24,
       elevation: 16,
@@ -28,7 +39,6 @@ class _DesplegableState extends State<Desplegable> {
         height: 2,
         color: Color(0xff008FFF),
       ),
-      onChanged: (String? v) {},
       items: widget._valores.map<DropdownMenuItem<String>>(
         (String valor) {
           return DropdownMenuItem<String>(
@@ -37,6 +47,11 @@ class _DesplegableState extends State<Desplegable> {
           );
         },
       ).toList(),
+      onChanged: (String? nuevo) {
+        setState(() {
+          _actual = nuevo!;
+        });
+      },
     );
   }
 }

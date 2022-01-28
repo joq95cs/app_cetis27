@@ -15,7 +15,9 @@ class PantallaReportesRecibidos1 extends StatelessWidget {
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
                 Componentes.getDesplegable(
-                    ['Departamento', 'Todos'], 'Departamento'),
+                  ['Departamento', 'Todos'],
+                  'Departamento',
+                ),
               ],
             ),
             Expanded(
