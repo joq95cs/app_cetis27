@@ -1,10 +1,5 @@
-import 'dart:developer';
-
-import 'package:app_cetis27/logica/modelos/reporte.dart';
 import 'package:app_cetis27/logica/reportes_enviados.dart';
-import 'package:app_cetis27/logica/usuario_activo.dart';
 import 'package:app_cetis27/pantallas/componentes/componentes.dart';
-import 'package:app_cetis27/pantallas/temporal/reportes.dart';
 import 'package:flutter/material.dart';
 
 class PantallaReportesEnviados2 extends StatelessWidget {

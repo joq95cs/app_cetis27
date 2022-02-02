@@ -1,8 +1,5 @@
-import 'dart:developer';
-import 'package:app_cetis27/logica/argumentos.dart';
 import 'package:app_cetis27/logica/funciones.dart';
 import 'package:app_cetis27/logica/modelos/reporte.dart';
-import 'package:app_cetis27/pantallas/pantalla_vista_reporte_2.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 

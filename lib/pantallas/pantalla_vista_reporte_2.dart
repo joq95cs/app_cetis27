@@ -1,5 +1,4 @@
 import 'package:app_cetis27/logica/argumentos.dart';
-import 'package:app_cetis27/logica/modelos/reporte.dart';
 import 'package:app_cetis27/pantallas/componentes/componentes.dart';
 import 'package:flutter/material.dart';
 

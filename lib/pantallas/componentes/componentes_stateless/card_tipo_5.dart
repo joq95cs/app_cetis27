@@ -1,7 +1,6 @@
 import 'package:app_cetis27/logica/constantes.dart';
 import 'package:app_cetis27/logica/modelos/reporte.dart';
 import 'package:app_cetis27/pantallas/componentes/componentes.dart';
-import 'package:app_cetis27/pantallas/temporal/reportes.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 

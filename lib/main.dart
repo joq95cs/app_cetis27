@@ -1,4 +1,3 @@
-import 'package:app_cetis27/logica/login.dart';
 import 'package:app_cetis27/pantallas/pantalla_home_1.dart';
 import 'package:app_cetis27/pantallas/pantalla_home_2.dart';
 import 'package:app_cetis27/pantallas/pantalla_login.dart';

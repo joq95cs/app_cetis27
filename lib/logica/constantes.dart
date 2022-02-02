@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:flutter/widgets.dart';
 
 class Constantes {
   static const SERVER_URL = 'http://192.168.0.6';

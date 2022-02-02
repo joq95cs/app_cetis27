@@ -1,7 +1,6 @@
 import 'package:app_cetis27/logica/constantes.dart';
 import 'package:app_cetis27/logica/modelos/categoria.dart';
 import 'package:http/http.dart' as http;
-import 'dart:convert';
 
 class NuevaCategoria {
   Categoria _categoria;

@@ -1,6 +1,3 @@
-import 'dart:developer';
-
-import 'package:app_cetis27/logica/modelos/usuario.dart';
 import 'package:app_cetis27/logica/usuario_activo.dart';
 import 'package:app_cetis27/pantallas/componentes/componentes.dart';
 import 'package:flutter/material.dart';

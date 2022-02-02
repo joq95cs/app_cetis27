@@ -1,5 +1,4 @@
 import 'dart:developer';
-
 import 'package:app_cetis27/logica/argumentos.dart';
 import 'package:app_cetis27/logica/eliminar_reporte.dart';
 import 'package:app_cetis27/logica/login.dart';
@@ -12,7 +11,6 @@ import 'package:app_cetis27/logica/reportes_enviados.dart';
 import 'package:app_cetis27/logica/usuario_activo.dart';
 import 'package:app_cetis27/pantallas/pantalla_home_1.dart';
 import 'package:app_cetis27/pantallas/pantalla_home_2.dart';
-import 'package:app_cetis27/pantallas/pantalla_login.dart';
 import 'package:app_cetis27/pantallas/pantalla_nueva_categoria.dart';
 import 'package:app_cetis27/pantallas/pantalla_nuevo_reporte.dart';
 import 'package:app_cetis27/pantallas/pantalla_reportes_enviados_2.dart';
