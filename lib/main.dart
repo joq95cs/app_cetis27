@@ -1,5 +1,8 @@
+import 'package:app_cetis27/pantallas/pantalla_categorias_pendientes.dart';
 import 'package:app_cetis27/pantallas/pantalla_home_1.dart';
 import 'package:app_cetis27/pantallas/pantalla_home_2.dart';
+import 'package:app_cetis27/pantallas/pantalla_home_4.dart';
+import 'package:app_cetis27/pantallas/pantalla_home_3.dart';
 import 'package:app_cetis27/pantallas/pantalla_login.dart';
 import 'package:app_cetis27/pantallas/pantalla_nueva_categoria.dart';
 import 'package:app_cetis27/pantallas/pantalla_nuevo_reporte.dart';
@@ -20,9 +23,11 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       routes: {
-        '/': (context) => PantallaLogin(),
+        '/': (context) => PantallaHome3(),
         PantallaHome1.ruta: (context) => PantallaHome1(),
         PantallaHome2.ruta: (context) => PantallaHome2(),
+        PantallaHome3.ruta: (context) => PantallaHome3(),
+        PantallaHome4.ruta: (context) => PantallaHome4(),
         PantallaNuevoReporte.ruta: (context) => PantallaNuevoReporte(),
         PantallaNuevaCategoria.ruta: (context) => PantallaNuevaCategoria(),
         PantallaReportesRecibidos1.ruta: (context) =>
@@ -35,6 +40,8 @@ class MyApp extends StatelessWidget {
             PantallaReportesEnviados2(),
         PantallaVistaReporte1.ruta: (context) => PantallaVistaReporte1(),
         PantallaVistaReporte2.ruta: (context) => PantallaVistaReporte2(),
+        PantallaCategoriasPendientes.ruta: (context) =>
+            PantallaCategoriasPendientes(),
       },
       theme: ThemeData(
         primarySwatch: Colors.blue,

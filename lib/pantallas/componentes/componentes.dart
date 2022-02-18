@@ -1,5 +1,8 @@
+import 'package:app_cetis27/logica/modelos/categoria.dart';
 import 'package:app_cetis27/logica/modelos/reporte.dart';
-import 'package:app_cetis27/pantallas/componentes/componentes_statateful/desplegable.dart';
+import 'package:app_cetis27/pantallas/componentes/componentes_statateful/desplegable_tipo_1.dart';
+import 'package:app_cetis27/pantallas/componentes/componentes_statateful/desplegable_tipo_2.dart';
+import 'package:app_cetis27/pantallas/componentes/componentes_statateful/desplegable_tipo_3.dart';
 import 'package:app_cetis27/pantallas/componentes/componentes_stateless/area_texto.dart';
 import 'package:app_cetis27/pantallas/componentes/componentes_stateless/barra_superior.dart';
 import 'package:app_cetis27/pantallas/componentes/componentes_stateless/boton_tipo_1.dart';
@@ -13,6 +16,7 @@ import 'package:app_cetis27/pantallas/componentes/componentes_stateless/card_tip
 import 'package:app_cetis27/pantallas/componentes/componentes_stateless/card_tipo_4.dart';
 import 'package:app_cetis27/pantallas/componentes/componentes_stateless/card_tipo_5.dart';
 import 'package:app_cetis27/pantallas/componentes/componentes_stateless/card_tipo_6.dart';
+import 'package:app_cetis27/pantallas/componentes/componentes_stateless/card_tipo_7.dart';
 import 'package:app_cetis27/pantallas/componentes/componentes_stateless/etiqueta.dart';
 import 'package:app_cetis27/pantallas/componentes/componentes_stateless/logo.dart';
 import 'package:flutter/material.dart';
@@ -64,8 +68,8 @@ class Componentes {
     return CardTipo1(index);
   }
 
-  static CardTipo2 getCardTipo2(int index) {
-    return CardTipo2(index);
+  static CardTipo2 getCardTipo2(Reporte reporte) {
+    return CardTipo2(reporte);
   }
 
   static CardTipo3 getCardTipo3() {
@@ -84,14 +88,32 @@ class Componentes {
     return CardTipo6(reporte);
   }
 
+  static CardTipo7 getCardTipo7(Categoria categoria) {
+    return CardTipo7(categoria);
+  }
+
   static AppBar getBarraSuperior(String titulo) {
     return BarraSuperior.getBarraSuperior(titulo);
   }
 
-  static Desplegable getDesplegable(
+  static DesplegableTipo1 getDesplegableTipo1(
     List<String> valores,
     String base,
   ) {
-    return Desplegable(valores, base);
+    return DesplegableTipo1(valores, base);
+  }
+
+  static DesplegableTipo2 getDesplegableTipo2(
+    List<String> valores,
+    String base,
+  ) {
+    return DesplegableTipo2(valores, base);
+  }
+
+  static DesplegableTipo3 getDesplegableTipo3(
+    List<String> valores,
+    String base,
+  ) {
+    return DesplegableTipo3(valores, base);
   }
 }

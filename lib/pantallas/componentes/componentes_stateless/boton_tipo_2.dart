@@ -47,17 +47,13 @@ class BotonTipo2 extends StatelessWidget {
           if (_f == 1) {
             Funciones.irPantallaNuevoReporte(context);
           } else if (_f == 2) {
+            Funciones.verReportesRecibidos(context);
           } else if (_f == 3) {
-          } else if (_f == 4) {
-          } else if (_f == 5) {
-          } else if (_f == 6) {
-          } else if (_f == 7) {
-          } else if (_f == 8) {
-            //Pantalla 2, nueva categoría
-            Funciones.irPantallaNuevaCategoria(context);
-          } else if (_f == 9) {
-            //Pantalla 2, ver reportes
             Funciones.verReportesEnviados(context);
+          } else if (_f == 4) {
+            Funciones.verCategoriasPendientes(context);
+          } else if (_f == 5) {
+            Funciones.irPantallaNuevaCategoria(context);
           }
         },
       ),

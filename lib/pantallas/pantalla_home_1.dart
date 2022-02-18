@@ -3,9 +3,12 @@ import 'package:app_cetis27/pantallas/componentes/componentes.dart';
 import 'package:flutter/material.dart';
 
 class PantallaHome1 extends StatelessWidget {
+  //JEFE NO ENCARGADO
   static String ruta = '/pantallaHome1';
   @override
   Widget build(BuildContext context) {
+    //Usuario temporal
+
     return SafeArea(
       child: Scaffold(
         appBar: Componentes.getBarraSuperior(
@@ -48,17 +51,25 @@ class PantallaHome1 extends StatelessWidget {
                         50,
                         20,
                       ),
-                      Componentes.getBotonTipo2(
+                      /*Componentes.getBotonTipo2(
                         'Categorías pendientes',
                         4,
                         Icons.category,
                         300,
                         50,
                         20,
-                      ),
-                      Componentes.getBotonTipo2(
+                      ),*/
+                      /*Componentes.getBotonTipo2(
                         'Ver categorías',
                         5,
+                        Icons.category,
+                        300,
+                        50,
+                        20,
+                      ),*/
+                      Componentes.getBotonTipo2(
+                        'Crear categoría',
+                        8,
                         Icons.category,
                         300,
                         50,
@@ -72,14 +83,14 @@ class PantallaHome1 extends StatelessWidget {
                         50,
                         20,
                       ),
-                      Componentes.getBotonTipo2(
+                      /*Componentes.getBotonTipo2(
                         'Registrar usuario',
                         7,
                         Icons.person_add,
                         300,
                         50,
                         20,
-                      ),
+                      ),*/
                     ],
                   ),
                   Container(

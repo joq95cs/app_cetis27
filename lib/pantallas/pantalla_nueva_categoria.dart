@@ -39,7 +39,7 @@ class PantallaNuevaCategoria extends StatelessWidget {
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     children: [
                       Componentes.getEtiqueta('Espacio'),
-                      Componentes.getDesplegable(
+                      Componentes.getDesplegableTipo1(
                         ['Biblioteca', 'Cafetería', 'Baños', 'Otro'],
                         'Biblioteca',
                       ),
@@ -49,7 +49,7 @@ class PantallaNuevaCategoria extends StatelessWidget {
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     children: [
                       Componentes.getEtiqueta('Subespacio'),
-                      Componentes.getDesplegable(
+                      Componentes.getDesplegableTipo2(
                         [
                           'Biblioteca principal',
                           'Cafetería principal',

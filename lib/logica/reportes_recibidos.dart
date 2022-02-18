@@ -1,17 +1,19 @@
+import 'dart:convert';
+import 'dart:developer';
+import 'package:app_cetis27/logica/modelos/valores_activos.dart';
+import 'package:http/http.dart' as http;
 import 'package:app_cetis27/logica/constantes.dart';
 import 'package:app_cetis27/logica/modelos/reporte.dart';
 import 'package:app_cetis27/logica/usuario_activo.dart';
-import 'package:http/http.dart' as http;
-import 'dart:convert';
 
-class ReportesEnviados {
-  static List<Reporte> reportesEnviados = [];
-  Future<List<Reporte>> obtenerPorUsuario() async {
+class ReportesRecibidos {
+  static List<Reporte> reportesRecibidos = [];
+  Future<List<Reporte>> obtenerPorEspacio() async {
     var respuesta = await http.post(
       Uri.parse(
-          '${Constantes.SERVER_URL}/curso_php/cetis_27/get_sent_reports_user.php'),
+          '${Constantes.SERVER_URL}/curso_php/cetis_27/get_received_reports_space.php'),
       body: {
-        'id': UsuarioActivo.usuario.id.toString(),
+        'espacio': ValoresActivos.espacio.id.toString(),
       },
     );
 

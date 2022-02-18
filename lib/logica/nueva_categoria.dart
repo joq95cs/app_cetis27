@@ -13,7 +13,6 @@ class NuevaCategoria {
       body: {
         'nombre': _categoria.nombre,
         'descripcion': _categoria.descripcion,
-        'departamento': _categoria.departamento.toString(),
         'espacio': _categoria.espacio.toString(),
       },
     );

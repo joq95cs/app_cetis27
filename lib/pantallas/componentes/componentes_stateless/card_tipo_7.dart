@@ -1,15 +1,14 @@
 import 'package:app_cetis27/logica/constantes.dart';
+import 'package:app_cetis27/logica/modelos/categoria.dart';
 import 'package:app_cetis27/logica/modelos/reporte.dart';
 import 'package:app_cetis27/pantallas/componentes/componentes.dart';
-import 'package:app_cetis27/pantallas/temporal/reportes.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 
-//REPORTES RECIBIDOS
-class CardTipo2 extends StatelessWidget {
-  Reporte _reporte;
+class CardTipo7 extends StatelessWidget {
+  Categoria _categoria;
 
-  CardTipo2(this._reporte);
+  CardTipo7(this._categoria);
   @override
   Widget build(BuildContext context) {
     return Card(
@@ -22,7 +21,7 @@ class CardTipo2 extends StatelessWidget {
           ListTile(
             contentPadding: EdgeInsets.fromLTRB(15, 10, 25, 0),
             title: Text(
-              _reporte.asunto as String,
+              _categoria.nombre as String,
               style: GoogleFonts.roboto(
                 textStyle: TextStyle(
                   fontSize: 16,
@@ -32,7 +31,7 @@ class CardTipo2 extends StatelessWidget {
               ),
             ),
             subtitle: Text(
-              _reporte.descripcion as String,
+              _categoria.descripcion as String,
               style: GoogleFonts.roboto(
                 textStyle: TextStyle(
                   fontSize: 16,
@@ -47,13 +46,11 @@ class CardTipo2 extends StatelessWidget {
             mainAxisAlignment: MainAxisAlignment.end,
             children: [
               Componentes.getBotonTipo4(
-                  'Ver', 0, Colors.blue, 16, FontWeight.w400, Reporte()),
+                  'Aceptar', 1, Colors.green, 16, FontWeight.w400, Reporte()),
               Componentes.getBotonTipo4(
-                  'Aceptar', 0, Colors.green, 16, FontWeight.w400, Reporte()),
+                  'Editar', 2, Colors.blue, 16, FontWeight.w400, Reporte()),
               Componentes.getBotonTipo4(
-                  'Reenviar', 0, Colors.blue, 16, FontWeight.w400, Reporte()),
-              Componentes.getBotonTipo4(
-                  'Rechazar', 0, Colors.red, 16, FontWeight.w400, Reporte()),
+                  'Rechazar', 3, Colors.red, 16, FontWeight.w400, Reporte()),
             ],
           ),
         ],

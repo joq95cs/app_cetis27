@@ -1,5 +1,7 @@
 import 'dart:developer';
 import 'package:app_cetis27/logica/argumentos.dart';
+import 'package:app_cetis27/logica/cargar_espacios.dart';
+import 'package:app_cetis27/logica/categorias_pendientes.dart';
 import 'package:app_cetis27/logica/eliminar_reporte.dart';
 import 'package:app_cetis27/logica/login.dart';
 import 'package:app_cetis27/logica/modelos/categoria.dart';
@@ -8,12 +10,16 @@ import 'package:app_cetis27/logica/modelos/usuario.dart';
 import 'package:app_cetis27/logica/nueva_categoria.dart';
 import 'package:app_cetis27/logica/nuevo_reporte.dart';
 import 'package:app_cetis27/logica/reportes_enviados.dart';
+import 'package:app_cetis27/logica/reportes_recibidos.dart';
 import 'package:app_cetis27/logica/usuario_activo.dart';
+import 'package:app_cetis27/pantallas/pantalla_categorias_pendientes.dart';
 import 'package:app_cetis27/pantallas/pantalla_home_1.dart';
 import 'package:app_cetis27/pantallas/pantalla_home_2.dart';
+import 'package:app_cetis27/pantallas/pantalla_home_4.dart';
 import 'package:app_cetis27/pantallas/pantalla_nueva_categoria.dart';
 import 'package:app_cetis27/pantallas/pantalla_nuevo_reporte.dart';
 import 'package:app_cetis27/pantallas/pantalla_reportes_enviados_2.dart';
+import 'package:app_cetis27/pantallas/pantalla_reportes_recibidos_2.dart';
 import 'package:app_cetis27/pantallas/pantalla_vista_reporte_2.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
@@ -64,8 +70,8 @@ class Funciones {
         descripcion: Argumentos.argsNuevoReporte[1].text,
         foto: 'foto.png',
         usuario: UsuarioActivo.usuario.id,
-        categoria: 4,
-        espacio: 9,
+        categoria: 7,
+        espacio: Argumentos.espacioActual.id,
         estatus: 'Pendiente',
       ),
     );
@@ -88,8 +94,7 @@ class Funciones {
       Categoria(
         nombre: Argumentos.argsNuevaCategoria[0].text,
         descripcion: Argumentos.argsNuevaCategoria[1].text,
-        departamento: 3,
-        espacio: 2,
+        espacio: 4,
       ),
     );
 
@@ -107,6 +112,7 @@ class Funciones {
 
   static void irPantallaNuevoReporte(BuildContext context) {
     //Botón Tipo 2
+
     Navigator.pushNamed(context, PantallaNuevoReporte.ruta);
   }
 
@@ -117,10 +123,32 @@ class Funciones {
 
   static void verReportesEnviados(BuildContext context) {
     //Botón Tipo 2
-    ReportesEnviados().obtener().then((futuro) {
-      ReportesEnviados.reportesEnviados = futuro;
-      Navigator.pushNamed(context, PantallaReportesEnviados2.ruta);
-    });
+    if (UsuarioActivo.usuario.tipo == 3) {
+      ReportesEnviados().obtenerPorUsuario().then((futuro) {
+        ReportesEnviados.reportesEnviados = futuro;
+        Navigator.pushNamed(context, PantallaReportesEnviados2.ruta);
+      });
+    }
+  }
+
+  static void verReportesRecibidos(BuildContext context) {
+    //Botón Tipo 2
+    if (UsuarioActivo.usuario.tipo == 3) {
+      ReportesRecibidos().obtenerPorEspacio().then((futuro) {
+        ReportesRecibidos.reportesRecibidos = futuro;
+        Navigator.pushNamed(context, PantallaReportesRecibidos2.ruta);
+      });
+    }
+  }
+
+  static void verCategoriasPendientes(BuildContext context) {
+    //Botón Tipo 2
+    if (UsuarioActivo.usuario.tipo == 3) {
+      CategoriasPendientes().obtenerPorEspacio().then((futuro) {
+        CategoriasPendientes.categoriasPendientes = futuro;
+        Navigator.pushNamed(context, PantallaCategoriasPendientes.ruta);
+      });
+    }
   }
 
   static void logout(BuildContext context) {

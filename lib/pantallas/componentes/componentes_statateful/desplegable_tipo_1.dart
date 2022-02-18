@@ -1,16 +1,24 @@
+import 'dart:developer';
+
+import 'package:app_cetis27/logica/argumentos.dart';
+import 'package:app_cetis27/logica/modelos/espacio.dart';
+import 'package:app_cetis27/pantallas/componentes/componentes.dart';
+import 'package:app_cetis27/pantallas/componentes/componentes_statateful/desplegable_tipo_2.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 
-class Desplegable extends StatefulWidget {
+class DesplegableTipo1 extends StatefulWidget {
+  static DesplegableTipo2 desplegableTipo2 =
+      DesplegableTipo2(['Seleccione'], 'Seleccione');
   List<String> _valores;
   String _base;
 
-  Desplegable(this._valores, this._base);
+  DesplegableTipo1(this._valores, this._base);
   @override
-  State<Desplegable> createState() => _DesplegableState();
+  State<DesplegableTipo1> createState() => _DesplegableTipo1State();
 }
 
-class _DesplegableState extends State<Desplegable> {
+class _DesplegableTipo1State extends State<DesplegableTipo1> {
   String _actual = '';
 
   @override
@@ -48,6 +56,19 @@ class _DesplegableState extends State<Desplegable> {
         setState(() {
           _actual = nuevo!;
         });
+
+        if (_actual == 'Seleccione') {
+          DesplegableTipo1.desplegableTipo2.reiniciar!();
+        } else {
+          Argumentos.argsSubespacios = [];
+          Argumentos.argsEspacios.forEach((Espacio espacio) {
+            if ((espacio.tipo as String) == _actual) {
+              Argumentos.argsSubespacios.add(espacio);
+            }
+          });
+
+          DesplegableTipo1.desplegableTipo2.actualizar!();
+        }
       },
     );
   }

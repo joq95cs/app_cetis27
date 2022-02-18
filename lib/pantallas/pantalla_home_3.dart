@@ -1,12 +1,35 @@
+import 'package:app_cetis27/logica/modelos/usuario.dart';
 import 'package:app_cetis27/logica/usuario_activo.dart';
 import 'package:app_cetis27/pantallas/componentes/componentes.dart';
 import 'package:flutter/material.dart';
 
-class PantallaHome2 extends StatelessWidget {
-  //JEFE ENCARGADO
-  static String ruta = '/pantallaHome2';
+class PantallaHome3 extends StatelessWidget {
+  //ENCARGADO NO JEFE
+  static String ruta = '/pantallaHome3';
   @override
   Widget build(BuildContext context) {
+    //USUARIO TEMPORAL
+    /*UsuarioActivo.usuario = Usuario(
+      true,
+      id: 18,
+      nombre: 'Armenia',
+      apellidoPaterno: 'Ávila',
+      apellidoMaterno: 'Tapia',
+      nivel: 4,
+      curp: 'CURP',
+      tipo: 3,
+    );*/
+
+    UsuarioActivo.usuario = Usuario(
+      true,
+      id: 19,
+      nombre: 'Fanny',
+      apellidoPaterno: 'Tapia',
+      apellidoMaterno: 'Orozco',
+      nivel: 4,
+      curp: 'CURP',
+      tipo: 3,
+    );
     return SafeArea(
       child: Scaffold(
         appBar: Componentes.getBarraSuperior(
@@ -34,7 +57,7 @@ class PantallaHome2 extends StatelessWidget {
                         20,
                       ),
                       Componentes.getBotonTipo2(
-                        'Reportes recibidos', //Categoría por defecto y dirigidos a su departamento o subdepartamento
+                        'Reportes recibidos', //Categoría por defecto
                         2,
                         Icons.report,
                         300,
@@ -42,7 +65,7 @@ class PantallaHome2 extends StatelessWidget {
                         20,
                       ),
                       Componentes.getBotonTipo2(
-                        'Reportes enviados', //Enviados por su departamento y subdepartamentos o subdepartamento
+                        'Reportes enviados',
                         3,
                         Icons.history,
                         300,
@@ -59,14 +82,6 @@ class PantallaHome2 extends StatelessWidget {
                       ),
                       Componentes.getBotonTipo2(
                         'Crear categoría',
-                        8,
-                        Icons.category,
-                        300,
-                        50,
-                        20,
-                      ),
-                      Componentes.getBotonTipo2(
-                        'Ver categorías', //Categorías del espacio del cuál es encargado
                         5,
                         Icons.category,
                         300,
@@ -74,8 +89,16 @@ class PantallaHome2 extends StatelessWidget {
                         20,
                       ),
                       Componentes.getBotonTipo2(
-                        'Ver estadísticas', //De su espacio y departamento y subdepartamento
+                        'Ver categorías', //Categorías del espacio del cuál es encargado
                         6,
+                        Icons.category,
+                        300,
+                        50,
+                        20,
+                      ),
+                      Componentes.getBotonTipo2(
+                        'Ver estadísticas', //De su espacio
+                        7,
                         Icons.bar_chart,
                         300,
                         50,
