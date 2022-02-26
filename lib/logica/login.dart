@@ -1,3 +1,5 @@
+import 'dart:developer';
+
 import 'package:app_cetis27/logica/constantes.dart';
 import 'package:http/http.dart' as http;
 import 'dart:convert';
@@ -27,6 +29,7 @@ class Login {
           apellidoPaterno: objetoJson[2],
           apellidoMaterno: objetoJson[3],
           nivel: objetoJson[4],
+          tipo: objetoJson[5],
         );
       } else {
         return Usuario(false);

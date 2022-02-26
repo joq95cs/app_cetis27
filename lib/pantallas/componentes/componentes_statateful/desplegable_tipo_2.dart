@@ -1,11 +1,17 @@
 import 'dart:developer';
 
 import 'package:app_cetis27/logica/argumentos.dart';
+import 'package:app_cetis27/logica/modelos/categoria.dart';
 import 'package:app_cetis27/logica/modelos/espacio.dart';
+import 'package:app_cetis27/pantallas/componentes/componentes.dart';
+import 'package:app_cetis27/pantallas/componentes/componentes_statateful/desplegable_tipo_3.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:image_picker/image_picker.dart';
 
 class DesplegableTipo2 extends StatefulWidget {
+  static DesplegableTipo3 desplegableTipo3 =
+      Componentes.getDesplegableTipo3(['Seleccione'], 'Seleccione');
   List<String> _valores;
   String _base;
   Function? actualizar;
@@ -29,7 +35,7 @@ class _DesplegableTipo2State extends State<DesplegableTipo2> {
         nombresSubespacios.add(subespacio.nombre as String);
       });
 
-      nombresSubespacios.insert(0, 'Selecciona');
+      nombresSubespacios.insert(0, 'Seleccione');
 
       setState(() {
         widget._valores = nombresSubespacios;
@@ -78,12 +84,24 @@ class _DesplegableTipo2State extends State<DesplegableTipo2> {
           _actual = nuevo!;
         });
 
+        DesplegableTipo2.desplegableTipo3.reiniciar!();
         if (_actual != 'Seleccione') {
           Argumentos.argsSubespacios.forEach((Espacio espacio) {
             if (_actual == (espacio.nombre as String)) {
-              Argumentos.espacioActual = espacio;
+              Argumentos.argsEspacioSeleccionado = espacio;
             }
           });
+
+          Argumentos.argsCategorias.forEach((Categoria categoria) {
+            if (categoria.espacio == Argumentos.argsEspacioSeleccionado.id) {
+              Argumentos.argsCategoriasEspacio.add(categoria);
+            }
+          });
+
+          DesplegableTipo2.desplegableTipo3.actualizar!();
+        } else if (_actual == 'Seleccione') {
+          Argumentos.argsEspacioSeleccionado = Espacio();
+          Argumentos.argsCategoriaSeleccionada = Categoria();
         }
       },
     );

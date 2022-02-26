@@ -2,7 +2,6 @@ class Categoria {
   int? id;
   String? nombre;
   String? descripcion;
-
   int? espacio;
 
   Categoria({

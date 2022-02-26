@@ -1,11 +1,13 @@
 import 'package:app_cetis27/logica/categorias_pendientes.dart';
 import 'package:app_cetis27/logica/reportes_recibidos.dart';
 import 'package:app_cetis27/pantallas/componentes/componentes.dart';
+import 'package:app_cetis27/pantallas/componentes/componentes_statateful/list_view_tipo_3.dart';
 import 'package:app_cetis27/pantallas/temporal/reportes.dart';
 import 'package:flutter/material.dart';
 
 class PantallaCategoriasPendientes extends StatelessWidget {
   static String ruta = '/pantallaCategoriasPendientes';
+  static ListViewTipo3 listViewTipo3 = Componentes.getListViewTipo3();
   @override
   Widget build(BuildContext context) {
     return SafeArea(
@@ -14,13 +16,7 @@ class PantallaCategoriasPendientes extends StatelessWidget {
         body: Column(
           children: [
             Expanded(
-              child: ListView.builder(
-                itemCount: CategoriasPendientes.categoriasPendientes.length,
-                itemBuilder: (context, index) {
-                  return Componentes.getCardTipo7(
-                      CategoriasPendientes.categoriasPendientes[index]);
-                },
-              ),
+              child: PantallaCategoriasPendientes.listViewTipo3,
             ),
           ],
         ),

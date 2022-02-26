@@ -1,15 +1,17 @@
 import 'package:app_cetis27/logica/constantes.dart';
 import 'package:http/http.dart' as http;
 
-class EliminarReporte {
+class FijarStatusReporte {
   int _id;
-  EliminarReporte(this._id);
-  Future<int> eliminar() async {
+  String _estatus;
+  FijarStatusReporte(this._id, this._estatus);
+  Future<int> fijar() async {
     var respuesta = await http.post(
       Uri.parse(
-          '${Constantes.SERVER_URL}/curso_php/cetis_27/delete_report.php'),
+          '${Constantes.SERVER_URL}/curso_php/cetis_27/set_status_report.php'),
       body: {
         'id': _id.toString(),
+        'estatus': _estatus,
       },
     );
 

@@ -40,11 +40,15 @@ class BotonTipo1 extends StatelessWidget {
         ),
         onPressed: () {
           if (_f == 1) {
-            Funciones.login(context);
+            Funciones.btn1Login(context);
           } else if (_f == 2) {
-            Funciones.agregarReporte(context);
+            Funciones.btn1AgregarReporte(context);
           } else if (_f == 3) {
-            Funciones.agregarCategoria(context);
+            Funciones.btn1AgregarCategoria(context);
+          } else if (_f == 4) {
+            Funciones.btn1ActualizarReporte(context);
+          } else if (_f == 5) {
+            Funciones.btn1ActualizarCategoria(context);
           }
         },
       ),

@@ -5,21 +5,13 @@ import 'package:app_cetis27/pantallas/componentes/componentes.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 
-//REPORTES ENVIADOS
-class CardTipo5 extends StatelessWidget {
-  Reporte _reporte;
+//CATEGORIAS PENDIENTES
+class CardTipo8 extends StatelessWidget {
+  Categoria _categoria;
 
-  CardTipo5(this._reporte);
+  CardTipo8(this._categoria);
   @override
   Widget build(BuildContext context) {
-    Icon icono;
-    if (_reporte.estatus == 'Atendido') {
-      icono = Constantes.ICONOS[0];
-    } else if (_reporte.estatus == 'Pendiente') {
-      icono = Constantes.ICONOS[1];
-    } else {
-      icono = Constantes.ICONOS[2];
-    }
     return Card(
       shape: RoundedRectangleBorder(
         borderRadius: BorderRadius.circular(15),
@@ -30,7 +22,7 @@ class CardTipo5 extends StatelessWidget {
           ListTile(
             contentPadding: EdgeInsets.fromLTRB(15, 10, 25, 0),
             title: Text(
-              _reporte.asunto as String,
+              _categoria.nombre as String,
               style: GoogleFonts.roboto(
                 textStyle: TextStyle(
                   fontSize: 16,
@@ -40,7 +32,7 @@ class CardTipo5 extends StatelessWidget {
               ),
             ),
             subtitle: Text(
-              '${_reporte.descripcion as String}\nServicios escolares',
+              _categoria.descripcion as String,
               style: GoogleFonts.roboto(
                 textStyle: TextStyle(
                   fontSize: 16,
@@ -49,8 +41,7 @@ class CardTipo5 extends StatelessWidget {
                 ),
               ),
             ),
-            isThreeLine: true,
-            leading: icono,
+            leading: Constantes.ICONOS[3],
           ),
           Row(
             mainAxisAlignment: MainAxisAlignment.end,

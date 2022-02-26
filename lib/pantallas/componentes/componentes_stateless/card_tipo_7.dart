@@ -5,6 +5,7 @@ import 'package:app_cetis27/pantallas/componentes/componentes.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 
+//CATEGORIAS PENDIENTES
 class CardTipo7 extends StatelessWidget {
   Categoria _categoria;
 
@@ -45,12 +46,12 @@ class CardTipo7 extends StatelessWidget {
           Row(
             mainAxisAlignment: MainAxisAlignment.end,
             children: [
-              Componentes.getBotonTipo4(
-                  'Aceptar', 1, Colors.green, 16, FontWeight.w400, Reporte()),
-              Componentes.getBotonTipo4(
-                  'Editar', 2, Colors.blue, 16, FontWeight.w400, Reporte()),
-              Componentes.getBotonTipo4(
-                  'Rechazar', 3, Colors.red, 16, FontWeight.w400, Reporte()),
+              Componentes.getBotonTipo4('Aprobar', 13, Colors.green, 16,
+                  FontWeight.w400, Reporte(), _categoria),
+              Componentes.getBotonTipo4('Editar', 14, Colors.blue, 16,
+                  FontWeight.w400, Reporte(), _categoria),
+              Componentes.getBotonTipo4('Rechazar', 15, Colors.red, 16,
+                  FontWeight.w400, Reporte(), _categoria),
             ],
           ),
         ],

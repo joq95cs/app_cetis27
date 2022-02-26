@@ -1,11 +1,15 @@
 import 'dart:developer';
 
+import 'package:app_cetis27/logica/argumentos.dart';
+import 'package:app_cetis27/logica/modelos/categoria.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 
 class DesplegableTipo3 extends StatefulWidget {
   List<String> _valores;
   String _base;
+  Function? actualizar;
+  Function? reiniciar;
 
   DesplegableTipo3(this._valores, this._base);
   @override
@@ -18,6 +22,31 @@ class _DesplegableTipo3State extends State<DesplegableTipo3> {
   @override
   void initState() {
     _actual = widget._base;
+
+    widget.actualizar = () {
+      List<String> nombresCategorias = [];
+
+      Argumentos.argsCategoriasEspacio.forEach((Categoria categoria) {
+        nombresCategorias.add(categoria.nombre as String);
+      });
+
+      nombresCategorias.insert(0, 'Seleccione');
+
+      setState(() {
+        widget._valores = nombresCategorias;
+        widget._base = nombresCategorias[0];
+        _actual = nombresCategorias[0];
+      });
+    };
+
+    widget.reiniciar = () {
+      Argumentos.argsCategoriasEspacio = [];
+      setState(() {
+        widget._valores = ['Seleccione'];
+        widget._base = 'Seleccione';
+        _actual = 'Seleccione';
+      });
+    };
   }
 
   @override
@@ -50,6 +79,16 @@ class _DesplegableTipo3State extends State<DesplegableTipo3> {
         setState(() {
           _actual = nuevo!;
         });
+
+        if (_actual != 'Seleccione') {
+          Argumentos.argsCategoriasEspacio.forEach((Categoria categoria) {
+            if (categoria.nombre == _actual) {
+              Argumentos.argsCategoriaSeleccionada = categoria;
+            }
+          });
+        } else if (_actual == 'Seleccione') {
+          Argumentos.argsCategoriaSeleccionada = Categoria();
+        }
       },
     );
   }

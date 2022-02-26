@@ -1,9 +1,25 @@
+import 'package:app_cetis27/logica/argumentos.dart';
+import 'package:app_cetis27/logica/modelos/categoria.dart';
 import 'package:app_cetis27/logica/modelos/reporte.dart';
 import 'package:app_cetis27/pantallas/componentes/componentes.dart';
 import 'package:flutter/material.dart';
 
-class PantallaVistaReporte1 extends StatelessWidget {
+class PantallaVistaReporte1 extends StatefulWidget {
   static String ruta = '/pantallaVistaReporte1';
+  Function? actualizar;
+
+  @override
+  State<PantallaVistaReporte1> createState() => _PantallaVistaReporte1State();
+}
+
+class _PantallaVistaReporte1State extends State<PantallaVistaReporte1> {
+  @override
+  void initState() {
+    widget.actualizar = () {
+      setState(() {});
+    };
+  }
+
   @override
   Widget build(BuildContext context) {
     return SafeArea(
@@ -18,26 +34,28 @@ class PantallaVistaReporte1 extends StatelessWidget {
           child: Column(
             children: [
               Container(
-                height: 350,
+                //height: 350,
+                height: 300,
                 child: Componentes.getCardTipo3(),
               ),
               Container(
-                height: 248,
+                //height: 248,
+                height: 200,
                 child: Componentes.getCardTipo4(),
-              ),
-              Row(
-                mainAxisAlignment: MainAxisAlignment.spaceAround,
-                children: [
-                  Componentes.getBotonTipo4('Aceptar', 0, Colors.green, 18,
-                      FontWeight.w800, Reporte()),
-                  Componentes.getBotonTipo4('Reenviar', 0, Colors.green, 18,
-                      FontWeight.w800, Reporte()),
-                  Componentes.getBotonTipo4('Rechazar', 0, Colors.red, 18,
-                      FontWeight.w800, Reporte()),
-                ],
               ),
             ],
           ),
+        ),
+        bottomSheet: Row(
+          mainAxisAlignment: MainAxisAlignment.spaceAround,
+          children: [
+            Componentes.getBotonTipo4('Aceptar', 8, Colors.green, 18,
+                FontWeight.w800, Argumentos.argsReporteActual, Categoria()),
+            Componentes.getBotonTipo4('Reenviar', 9, Colors.blue, 18,
+                FontWeight.w800, Argumentos.argsReporteActual, Categoria()),
+            Componentes.getBotonTipo4('Rechazar', 10, Colors.red, 18,
+                FontWeight.w800, Argumentos.argsReporteActual, Categoria()),
+          ],
         ),
       ),
     );

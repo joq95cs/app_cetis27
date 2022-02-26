@@ -1,10 +1,9 @@
 import 'dart:convert';
 import 'dart:developer';
-import 'package:app_cetis27/logica/modelos/valores_activos.dart';
+import 'package:app_cetis27/logica/valores_activos.dart';
 import 'package:http/http.dart' as http;
 import 'package:app_cetis27/logica/constantes.dart';
 import 'package:app_cetis27/logica/modelos/reporte.dart';
-import 'package:app_cetis27/logica/usuario_activo.dart';
 
 class ReportesRecibidos {
   static List<Reporte> reportesRecibidos = [];

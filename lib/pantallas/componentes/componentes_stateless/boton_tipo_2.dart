@@ -1,3 +1,5 @@
+import 'dart:developer';
+
 import 'package:app_cetis27/logica/funciones.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
@@ -45,15 +47,19 @@ class BotonTipo2 extends StatelessWidget {
         ),
         onPressed: () {
           if (_f == 1) {
-            Funciones.irPantallaNuevoReporte(context);
+            Funciones.btn2IrPantallaNuevoReporte(context);
           } else if (_f == 2) {
-            Funciones.verReportesRecibidos(context);
+            Funciones.btn2VerReportesRecibidos(context);
           } else if (_f == 3) {
-            Funciones.verReportesEnviados(context);
+            Funciones.btn2VerReportesEnviados(context);
           } else if (_f == 4) {
-            Funciones.verCategoriasPendientes(context);
+            Funciones.btn2VerCategoriasPendientes(context);
           } else if (_f == 5) {
-            Funciones.irPantallaNuevaCategoria(context);
+            Funciones.btn2IrPantallaNuevaCategoria(context);
+          } else if (_f == 6) {
+            Funciones.btn2VerCategorias(context);
+          } else if (_f == 20) {
+            Funciones.btn2SeleccionarFoto(context);
           }
         },
       ),

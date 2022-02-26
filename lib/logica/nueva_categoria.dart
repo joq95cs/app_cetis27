@@ -9,7 +9,8 @@ class NuevaCategoria {
 
   Future<int> agregar() async {
     var respuesta = await http.post(
-      Uri.parse('${Constantes.SERVER_URL}/curso_php/cetis_27/new_category.php'),
+      Uri.parse(
+          '${Constantes.SERVER_URL}/curso_php/cetis_27/new_pending_category.php'),
       body: {
         'nombre': _categoria.nombre,
         'descripcion': _categoria.descripcion,
@@ -19,14 +20,13 @@ class NuevaCategoria {
 
     if (respuesta.statusCode == 200) {
       String datos = respuesta.body;
-
-      if (datos != '"error"') {
+      if (datos == '"success"') {
         return 0;
-      } else {
-        return 1;
       }
-    } else {
+
       return 1;
     }
+
+    return 1;
   }
 }

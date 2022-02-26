@@ -3,6 +3,11 @@ import 'package:app_cetis27/logica/modelos/reporte.dart';
 import 'package:app_cetis27/pantallas/componentes/componentes_statateful/desplegable_tipo_1.dart';
 import 'package:app_cetis27/pantallas/componentes/componentes_statateful/desplegable_tipo_2.dart';
 import 'package:app_cetis27/pantallas/componentes/componentes_statateful/desplegable_tipo_3.dart';
+import 'package:app_cetis27/pantallas/componentes/componentes_statateful/desplegable_tipo_4.dart';
+import 'package:app_cetis27/pantallas/componentes/componentes_statateful/desplegable_tipo_5.dart';
+import 'package:app_cetis27/pantallas/componentes/componentes_statateful/list_view_tipo_1.dart';
+import 'package:app_cetis27/pantallas/componentes/componentes_statateful/list_view_tipo_2.dart';
+import 'package:app_cetis27/pantallas/componentes/componentes_statateful/list_view_tipo_3.dart';
 import 'package:app_cetis27/pantallas/componentes/componentes_stateless/area_texto.dart';
 import 'package:app_cetis27/pantallas/componentes/componentes_stateless/barra_superior.dart';
 import 'package:app_cetis27/pantallas/componentes/componentes_stateless/boton_tipo_1.dart';
@@ -17,6 +22,7 @@ import 'package:app_cetis27/pantallas/componentes/componentes_stateless/card_tip
 import 'package:app_cetis27/pantallas/componentes/componentes_stateless/card_tipo_5.dart';
 import 'package:app_cetis27/pantallas/componentes/componentes_stateless/card_tipo_6.dart';
 import 'package:app_cetis27/pantallas/componentes/componentes_stateless/card_tipo_7.dart';
+import 'package:app_cetis27/pantallas/componentes/componentes_stateless/card_tipo_8.dart';
 import 'package:app_cetis27/pantallas/componentes/componentes_stateless/etiqueta.dart';
 import 'package:app_cetis27/pantallas/componentes/componentes_stateless/logo.dart';
 import 'package:flutter/material.dart';
@@ -37,23 +43,16 @@ class Componentes {
 
   static BotonTipo2 getBotonTipo2(String texto, int f, IconData icono,
       double ancho, double alto, double mb) {
-    return BotonTipo2(
-      texto,
-      f,
-      icono,
-      ancho,
-      alto,
-      mb,
-    );
+    return BotonTipo2(texto, f, icono, ancho, alto, mb);
   }
 
   static BotonTipo3 getBotonTipo3(String texto) {
     return BotonTipo3(texto);
   }
 
-  static BotonTipo4 getBotonTipo4(
-      String texto, int f, Color c, double fs, FontWeight fw, Reporte reporte) {
-    return BotonTipo4(texto, f, c, fs, fw, reporte);
+  static BotonTipo4 getBotonTipo4(String texto, int f, Color c, double fs,
+      FontWeight fw, Reporte reporte, Categoria categoria) {
+    return BotonTipo4(texto, f, c, fs, fw, reporte, categoria);
   }
 
   static Logo getLogo() {
@@ -92,28 +91,48 @@ class Componentes {
     return CardTipo7(categoria);
   }
 
+  static CardTipo8 getCardTipo8(Categoria categoria) {
+    return CardTipo8(categoria);
+  }
+
   static AppBar getBarraSuperior(String titulo) {
     return BarraSuperior.getBarraSuperior(titulo);
   }
 
   static DesplegableTipo1 getDesplegableTipo1(
-    List<String> valores,
-    String base,
-  ) {
+      List<String> valores, String base) {
     return DesplegableTipo1(valores, base);
   }
 
   static DesplegableTipo2 getDesplegableTipo2(
-    List<String> valores,
-    String base,
-  ) {
+      List<String> valores, String base) {
     return DesplegableTipo2(valores, base);
   }
 
   static DesplegableTipo3 getDesplegableTipo3(
-    List<String> valores,
-    String base,
-  ) {
+      List<String> valores, String base) {
     return DesplegableTipo3(valores, base);
+  }
+
+  static DesplegableTipo4 getDesplegableTipo4(
+      List<String> valores, String base) {
+    return DesplegableTipo4(valores, base);
+  }
+
+  static DesplegableTipo5 getDesplegableTipo5(
+      List<String> valores, String base) {
+    return DesplegableTipo5(valores, base);
+  }
+
+  static ListViewTipo1 getListViewTipo1() {
+    return ListViewTipo1();
+  }
+
+  static ListViewTipo2 getListViewTipo2() {
+    return ListViewTipo2();
+  }
+
+  static ListViewTipo3 getListViewTipo3() {
+    return ListViewTipo3();
   }
 }

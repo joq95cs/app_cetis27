@@ -1,6 +1,7 @@
 import 'package:app_cetis27/logica/constantes.dart';
 import 'package:app_cetis27/logica/modelos/reporte.dart';
-import 'package:app_cetis27/logica/usuario_activo.dart';
+import 'package:app_cetis27/logica/valores_activos.dart';
+
 import 'package:http/http.dart' as http;
 import 'dart:convert';
 
@@ -11,7 +12,7 @@ class ReportesEnviados {
       Uri.parse(
           '${Constantes.SERVER_URL}/curso_php/cetis_27/get_sent_reports_user.php'),
       body: {
-        'id': UsuarioActivo.usuario.id.toString(),
+        'id': ValoresActivos.usuario.id.toString(),
       },
     );
 

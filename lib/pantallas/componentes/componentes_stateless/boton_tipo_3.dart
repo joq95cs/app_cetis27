@@ -19,7 +19,7 @@ class BotonTipo3 extends StatelessWidget {
         ),
       ),
       onPressed: () {
-        Funciones.logout(context);
+        Funciones.btn3Logout(context);
       },
     );
   }

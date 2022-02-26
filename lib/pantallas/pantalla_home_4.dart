@@ -1,4 +1,4 @@
-import 'package:app_cetis27/logica/usuario_activo.dart';
+import 'package:app_cetis27/logica/valores_activos.dart';
 import 'package:app_cetis27/pantallas/componentes/componentes.dart';
 import 'package:flutter/material.dart';
 
@@ -10,7 +10,7 @@ class PantallaHome4 extends StatelessWidget {
     return SafeArea(
       child: Scaffold(
         appBar: Componentes.getBarraSuperior(
-            'Bienvenido(a): ${UsuarioActivo.usuario.nombre}'),
+            'Bienvenido(a): ${ValoresActivos.usuario.nombre}'),
         body: Row(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [

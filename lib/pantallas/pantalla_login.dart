@@ -10,30 +10,35 @@ class PantallaLogin extends StatelessWidget {
   Widget build(BuildContext context) {
     Argumentos.argsLogin = [_controladorUser, _controladorPass];
     return SafeArea(
-      child: Scaffold(
-        resizeToAvoidBottomInset: false,
-        body: Container(
-          padding: EdgeInsets.symmetric(horizontal: 40),
-          color: Color(0xFFfafafa),
-          width: double.infinity,
-          child: Column(
-            mainAxisAlignment: MainAxisAlignment.center,
-            children: [
-              Componentes.getLogo(),
-              Componentes.getCampoTextoTipo1(
-                'Usuario',
-                Icon(Icons.person_outline),
-                false,
-                _controladorUser,
-              ),
-              Componentes.getCampoTextoTipo1(
-                'Contraseña',
-                Icon(Icons.lock_outline),
-                false,
-                _controladorPass,
-              ),
-              Componentes.getBotonTipo1('INICIAR SESIÓN', 1),
-            ],
+      child: GestureDetector(
+        onTap: () {
+          FocusScope.of(context).unfocus();
+        },
+        child: Scaffold(
+          resizeToAvoidBottomInset: false,
+          body: Container(
+            padding: EdgeInsets.symmetric(horizontal: 40),
+            color: Color(0xFFfafafa),
+            width: double.infinity,
+            child: Column(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: [
+                Componentes.getLogo(),
+                Componentes.getCampoTextoTipo1(
+                  'Usuario',
+                  Icon(Icons.person_outline),
+                  false,
+                  _controladorUser,
+                ),
+                Componentes.getCampoTextoTipo1(
+                  'Contraseña',
+                  Icon(Icons.lock_outline),
+                  false,
+                  _controladorPass,
+                ),
+                Componentes.getBotonTipo1('INICIAR SESIÓN', 1),
+              ],
+            ),
           ),
         ),
       ),

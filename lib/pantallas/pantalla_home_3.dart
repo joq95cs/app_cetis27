@@ -1,39 +1,21 @@
+import 'package:app_cetis27/logica/argumentos.dart';
+import 'package:app_cetis27/logica/modelos/espacio.dart';
 import 'package:app_cetis27/logica/modelos/usuario.dart';
-import 'package:app_cetis27/logica/usuario_activo.dart';
+import 'package:app_cetis27/logica/valores_activos.dart';
+
 import 'package:app_cetis27/pantallas/componentes/componentes.dart';
 import 'package:flutter/material.dart';
 
 class PantallaHome3 extends StatelessWidget {
   //ENCARGADO NO JEFE
+
   static String ruta = '/pantallaHome3';
   @override
   Widget build(BuildContext context) {
-    //USUARIO TEMPORAL
-    /*UsuarioActivo.usuario = Usuario(
-      true,
-      id: 18,
-      nombre: 'Armenia',
-      apellidoPaterno: 'Ávila',
-      apellidoMaterno: 'Tapia',
-      nivel: 4,
-      curp: 'CURP',
-      tipo: 3,
-    );*/
-
-    UsuarioActivo.usuario = Usuario(
-      true,
-      id: 19,
-      nombre: 'Fanny',
-      apellidoPaterno: 'Tapia',
-      apellidoMaterno: 'Orozco',
-      nivel: 4,
-      curp: 'CURP',
-      tipo: 3,
-    );
     return SafeArea(
       child: Scaffold(
         appBar: Componentes.getBarraSuperior(
-            'Bienvenido(a): ${UsuarioActivo.usuario.nombre}'),
+            'Bienvenido(a): ${ValoresActivos.usuario.nombre}'),
         body: Row(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [

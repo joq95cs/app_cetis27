@@ -1,22 +1,25 @@
+import 'dart:developer';
+
 import 'package:app_cetis27/logica/argumentos.dart';
-import 'package:app_cetis27/logica/modelos/categoria.dart';
 import 'package:app_cetis27/logica/modelos/espacio.dart';
+import 'package:app_cetis27/pantallas/componentes/componentes.dart';
 import 'package:app_cetis27/pantallas/componentes/componentes_statateful/desplegable_tipo_2.dart';
+import 'package:app_cetis27/pantallas/componentes/componentes_statateful/desplegable_tipo_5.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 
-class DesplegableTipo1 extends StatefulWidget {
-  static DesplegableTipo2 desplegableTipo2 =
-      DesplegableTipo2(['Seleccione'], 'Seleccione');
+class DesplegableTipo4 extends StatefulWidget {
+  static DesplegableTipo5 desplegableTipo5 =
+      DesplegableTipo5(['Seleccione'], 'Seleccione');
   List<String> _valores;
   String _base;
 
-  DesplegableTipo1(this._valores, this._base);
+  DesplegableTipo4(this._valores, this._base);
   @override
-  State<DesplegableTipo1> createState() => _DesplegableTipo1State();
+  State<DesplegableTipo4> createState() => _DesplegableTipo4State();
 }
 
-class _DesplegableTipo1State extends State<DesplegableTipo1> {
+class _DesplegableTipo4State extends State<DesplegableTipo4> {
   String _actual = '';
 
   @override
@@ -55,8 +58,7 @@ class _DesplegableTipo1State extends State<DesplegableTipo1> {
           _actual = nuevo!;
         });
 
-        DesplegableTipo1.desplegableTipo2.reiniciar!();
-        DesplegableTipo2.desplegableTipo3.reiniciar!();
+        DesplegableTipo4.desplegableTipo5.reiniciar!();
 
         if (_actual != 'Seleccione') {
           Argumentos.argsSubespacios = [];
@@ -66,10 +68,7 @@ class _DesplegableTipo1State extends State<DesplegableTipo1> {
             }
           });
 
-          DesplegableTipo1.desplegableTipo2.actualizar!();
-        } else if (_actual == 'Seleccione') {
-          Argumentos.argsEspacioSeleccionado = Espacio();
-          Argumentos.argsCategoriaSeleccionada = Categoria();
+          DesplegableTipo4.desplegableTipo5.actualizar!();
         }
       },
     );

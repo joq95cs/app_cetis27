@@ -1,3 +1,4 @@
+import 'package:app_cetis27/logica/modelos/categoria.dart';
 import 'package:app_cetis27/logica/modelos/reporte.dart';
 import 'package:app_cetis27/pantallas/componentes/componentes.dart';
 import 'package:app_cetis27/pantallas/temporal/reportes.dart';
@@ -45,14 +46,14 @@ class CardTipo1 extends StatelessWidget {
           Row(
             mainAxisAlignment: MainAxisAlignment.end,
             children: [
-              Componentes.getBotonTipo4(
-                  'Ver', 0, Colors.blue, 16, FontWeight.w400, Reporte()),
-              Componentes.getBotonTipo4(
-                  'Aceptar', 0, Colors.blue, 16, FontWeight.w400, Reporte()),
-              Componentes.getBotonTipo4(
-                  'Reenviar', 0, Colors.blue, 16, FontWeight.w400, Reporte()),
-              Componentes.getBotonTipo4(
-                  'Rechazar', 0, Colors.red, 16, FontWeight.w400, Reporte()),
+              Componentes.getBotonTipo4('Ver', 0, Colors.blue, 16,
+                  FontWeight.w400, Reporte(), Categoria()),
+              Componentes.getBotonTipo4('Aceptar', 0, Colors.green, 16,
+                  FontWeight.w400, Reporte(), Categoria()),
+              Componentes.getBotonTipo4('Reenviar', 0, Colors.blue, 16,
+                  FontWeight.w400, Reporte(), Categoria()),
+              Componentes.getBotonTipo4('Rechazar', 0, Colors.red, 16,
+                  FontWeight.w400, Reporte(), Categoria()),
             ],
           ),
         ],
