@@ -46,12 +46,12 @@ class CardTipo8 extends StatelessWidget {
           Row(
             mainAxisAlignment: MainAxisAlignment.end,
             children: [
-              Componentes.getBotonTipo4('Ver', 1, Colors.blue, 16,
-                  FontWeight.w400, Reporte(), Categoria()),
-              Componentes.getBotonTipo4('Editar', 2, Colors.blue, 16,
-                  FontWeight.w400, Reporte(), Categoria()),
-              Componentes.getBotonTipo4('Eliminar', 3, Colors.red, 16,
-                  FontWeight.w400, Reporte(), Categoria()),
+              Componentes.getBotonTipo4('Ver', 16, Colors.blue, 16,
+                  FontWeight.w400, Reporte(), _categoria),
+              Componentes.getBotonTipo4('Editar', 17, Colors.blue, 16,
+                  FontWeight.w400, Reporte(), _categoria),
+              Componentes.getBotonTipo4('Eliminar', 18, Colors.red, 16,
+                  FontWeight.w400, Reporte(), _categoria),
             ],
           ),
         ],

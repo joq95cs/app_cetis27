@@ -1,5 +1,6 @@
 import 'dart:developer';
 
+import 'package:app_cetis27/logica/argumentos.dart';
 import 'package:app_cetis27/logica/fijar_estatus_reporte.dart';
 import 'package:app_cetis27/logica/funciones.dart';
 import 'package:app_cetis27/logica/modelos/categoria.dart';
@@ -46,7 +47,7 @@ class BotonTipo4 extends StatelessWidget {
               context, _reporte.id as int, 'Atendido', 1);
         } else if (_f == 3) {
           //Reenviar
-          Funciones.btn4EditarReporte(context, _reporte);
+          Funciones.btn4ReenviarReporte(context, _reporte, 1);
         } else if (_f == 4) {
           //Rechazar
           Funciones.btn4FijarStatusReporte(
@@ -57,7 +58,7 @@ class BotonTipo4 extends StatelessWidget {
           Funciones.btn4VerReporteEnviado(context, _reporte);
         } else if (_f == 6) {
           //Editar
-          Funciones.btn4EditarReporte(context, _reporte);
+          Funciones.btn4EditarReporte(context, _reporte, 1);
         } else if (_f == 7) {
           //Eliminar
           Funciones.btn4EliminarReporte(context, _reporte.id as int, 1);
@@ -67,8 +68,8 @@ class BotonTipo4 extends StatelessWidget {
           Funciones.btn4FijarStatusReporte(
               context, _reporte.id as int, 'Atendido', 2);
         } else if (_f == 9) {
-          //Editar
-          Funciones.btn4EditarReporte(context, _reporte);
+          //Reenviar
+          Funciones.btn4ReenviarReporte(context, _reporte, 2);
         } else if (_f == 10) {
           //Rechazar
           Funciones.btn4FijarStatusReporte(
@@ -76,20 +77,36 @@ class BotonTipo4 extends StatelessWidget {
         } else if (_f == 11) {
           //VISTA ENVIADOS
           //Editar
-          Funciones.btn4EditarReporte(context, _reporte);
+          Funciones.btn4EditarReporte(context, _reporte, 2);
         } else if (_f == 12) {
           //Eliminar
           Funciones.btn4EliminarReporte(context, _reporte.id as int, 2);
         } else if (_f == 13) {
           //CATEGORIAS PENDIENTES
           //Aprobar
-          Funciones.btn4AprobarCategoria(context, _categoria);
+          Argumentos.argsCategoriaActual = _categoria;
+          Funciones.btn4IrPantallaAprobarCategoria(context);
         } else if (_f == 14) {
           //Editar
-          Funciones.btn4EditarCategoria(context, _categoria);
+          Argumentos.argsCategoriaActual = _categoria;
+          Funciones.btn4IrPantallaEditarCategoria1(context);
         } else if (_f == 15) {
           //Rechazar
-          Funciones.btn4AprobarCategoria(context, _categoria);
+          Argumentos.argsCategoriaActual = _categoria;
+          Funciones.btn4RechazarCategoria(context);
+        } else if (_f == 16) {
+          //CATEGORIAS
+          //Ver
+          Argumentos.argsCategoriaActual = _categoria;
+          Funciones.btn4IrPantallaVistaCategoria(context);
+        } else if (_f == 17) {
+          Argumentos.argsCategoriaActual = _categoria;
+          Funciones.btn4EditarCategoria(context, 1);
+        } else if (_f == 18) {
+          Funciones.btn4EliminarCategoria(context, _categoria.id as int, 1);
+        } else if (_f == 19) {
+        } else if (_f == 20) {
+          Funciones.btn4EliminarCategoria(context, _categoria.id as int, 2);
         }
       },
     );

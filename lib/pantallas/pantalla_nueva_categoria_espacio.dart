@@ -1,19 +1,15 @@
 import 'package:app_cetis27/logica/argumentos.dart';
-import 'package:app_cetis27/logica/cargar_espacios.dart';
 import 'package:app_cetis27/logica/modelos/espacio.dart';
 import 'package:app_cetis27/pantallas/componentes/componentes.dart';
-import 'package:app_cetis27/pantallas/componentes/componentes_statateful/desplegable_tipo_4.dart';
 import 'package:flutter/material.dart';
 
-class PantallaEditarCategoria extends StatelessWidget {
-  static String ruta = '/pantallaEditarCategoria';
+class PantallaNuevaCategoriaEspacio extends StatelessWidget {
+  static String ruta = '/pantallaNuevaCategoriaEspacio';
+
   TextEditingController _controladorNombre = TextEditingController();
   TextEditingController _controladorDescripcion = TextEditingController();
   @override
   Widget build(BuildContext context) {
-    _controladorNombre.text = Argumentos.argsCategoriaActual.nombre as String;
-    _controladorDescripcion.text =
-        Argumentos.argsCategoriaActual.descripcion as String;
     Argumentos.argsNuevaCategoria = [
       _controladorNombre,
       _controladorDescripcion
@@ -28,7 +24,7 @@ class PantallaEditarCategoria extends StatelessWidget {
         },
         child: Scaffold(
           resizeToAvoidBottomInset: false,
-          appBar: Componentes.getBarraSuperior('Editar categoría'),
+          appBar: Componentes.getBarraSuperior('Nueva categoría'),
           body: Container(
             margin: EdgeInsets.only(top: 15.0),
             padding: EdgeInsets.symmetric(horizontal: 10),
@@ -52,7 +48,10 @@ class PantallaEditarCategoria extends StatelessWidget {
                 Container(
                   margin: EdgeInsets.only(bottom: 15.0),
                   alignment: Alignment.bottomCenter,
-                  child: Componentes.getBotonTipo1('ACTUALIZAR Y APROBAR', 5),
+                  child: Componentes.getBotonTipo1(
+                    'AGREGAR',
+                    11,
+                  ),
                 ),
               ],
             ),

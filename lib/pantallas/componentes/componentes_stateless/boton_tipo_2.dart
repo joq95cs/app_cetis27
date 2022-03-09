@@ -1,6 +1,5 @@
-import 'dart:developer';
-
 import 'package:app_cetis27/logica/funciones.dart';
+import 'package:app_cetis27/logica/valores_activos.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 
@@ -55,9 +54,17 @@ class BotonTipo2 extends StatelessWidget {
           } else if (_f == 4) {
             Funciones.btn2VerCategoriasPendientes(context);
           } else if (_f == 5) {
-            Funciones.btn2IrPantallaNuevaCategoria(context);
+            if (ValoresActivos.usuario.tipo == 3) {
+              Funciones.btn2IrPantallaElegirNuevaCategoria(context);
+            } else {
+              Funciones.btn2IrPantallaNuevaCategoria(context);
+            }
           } else if (_f == 6) {
             Funciones.btn2VerCategorias(context);
+          } else if (_f == 7) {
+            Funciones.btn2IrPantallaNuevaCategoriaEspacio(context);
+          } else if (_f == 8) {
+            Funciones.btn2IrPantallaNuevaCategoria(context);
           } else if (_f == 20) {
             Funciones.btn2SeleccionarFoto(context);
           }

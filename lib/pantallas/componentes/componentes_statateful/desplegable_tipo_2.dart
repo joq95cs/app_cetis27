@@ -1,5 +1,3 @@
-import 'dart:developer';
-
 import 'package:app_cetis27/logica/argumentos.dart';
 import 'package:app_cetis27/logica/modelos/categoria.dart';
 import 'package:app_cetis27/logica/modelos/espacio.dart';
@@ -7,11 +5,11 @@ import 'package:app_cetis27/pantallas/componentes/componentes.dart';
 import 'package:app_cetis27/pantallas/componentes/componentes_statateful/desplegable_tipo_3.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
-import 'package:image_picker/image_picker.dart';
 
 class DesplegableTipo2 extends StatefulWidget {
   static DesplegableTipo3 desplegableTipo3 =
       Componentes.getDesplegableTipo3(['Seleccione'], 'Seleccione');
+
   List<String> _valores;
   String _base;
   Function? actualizar;
@@ -87,7 +85,7 @@ class _DesplegableTipo2State extends State<DesplegableTipo2> {
         DesplegableTipo2.desplegableTipo3.reiniciar!();
         if (_actual != 'Seleccione') {
           Argumentos.argsSubespacios.forEach((Espacio espacio) {
-            if (_actual == (espacio.nombre as String)) {
+            if (_actual == espacio.nombre as String) {
               Argumentos.argsEspacioSeleccionado = espacio;
             }
           });

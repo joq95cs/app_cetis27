@@ -8,10 +8,11 @@ import 'package:app_cetis27/logica/modelos/espacio.dart';
 import 'package:app_cetis27/pantallas/componentes/componentes.dart';
 import 'package:app_cetis27/pantallas/componentes/componentes_statateful/desplegable_tipo_1.dart';
 import 'package:app_cetis27/pantallas/componentes/componentes_statateful/desplegable_tipo_2.dart';
+import 'package:app_cetis27/pantallas/componentes/componentes_statateful/desplegable_tipo_3.dart';
 import 'package:flutter/material.dart';
 
-class PantallaEditarReporte extends StatelessWidget {
-  static String ruta = '/pantallaEditarReporte';
+class PantallaEditarReporte1 extends StatelessWidget {
+  static String ruta = '/pantallaEditarReporte1';
 
   TextEditingController _controladorAsunto = TextEditingController();
   TextEditingController _controladorDescripcion = TextEditingController();
@@ -25,9 +26,6 @@ class PantallaEditarReporte extends StatelessWidget {
       _controladorAsunto,
       _controladorDescripcion,
     ];
-
-    Argumentos.argsCategoriaSeleccionada = Categoria();
-    Argumentos.argsEspacioSeleccionado = Espacio();
 
     return SafeArea(
       child: GestureDetector(
@@ -70,22 +68,51 @@ class PantallaEditarReporte extends StatelessWidget {
 
                           nombresEspacios.insert(0, 'Seleccione');
 
-                          /*String espacioActual = 'Seleccione';
-                          String subespacioActual = 'Seleccione';
-      
+                          String espacioActual = '';
+
                           Argumentos.argsEspacios.forEach((Espacio espacio) {
-                            if (espacio.id as int ==
-                                Argumentos.argsReporteActual.espacio as int) {
+                            if (espacio.id ==
+                                Argumentos.argsReporteActual.espacio) {
+                              Argumentos.argsEspacioSeleccionado = espacio;
                               espacioActual = espacio.tipo as String;
-                              subespacioActual = espacio.nombre as String;
                             }
                           });
-      
-                          DesplegableTipo1 desplegableTipo1 =
+
+                          DesplegableTipo1.desplegableTipo1 =
                               Componentes.getDesplegableTipo1(
-                            nombresEspacios,
-                            espacioActual,
-                          );*/
+                                  nombresEspacios, espacioActual);
+
+                          Argumentos.argsSubespacios = [];
+                          Argumentos.argsEspacios.forEach((Espacio espacio) {
+                            if (espacio.tipo as String == espacioActual) {
+                              Argumentos.argsSubespacios.add(espacio);
+                            }
+                          });
+
+                          List<String> nombresSubespacios = [];
+                          Argumentos.argsSubespacios
+                              .forEach((Espacio subespacio) {
+                            nombresSubespacios.add(subespacio.nombre as String);
+                          });
+
+                          nombresSubespacios.insert(0, 'Seleccione');
+
+                          String subespacioActual = '';
+                          Argumentos.argsSubespacios
+                              .forEach((Espacio subespacio) {
+                            if (subespacio.id ==
+                                Argumentos.argsReporteActual.espacio) {
+                              subespacioActual = subespacio.nombre as String;
+                            }
+                          });
+
+                          DesplegableTipo1.desplegableTipo2 =
+                              Componentes.getDesplegableTipo2(
+                                  nombresSubespacios, subespacioActual);
+
+                          DesplegableTipo2.desplegableTipo3 =
+                              Componentes.getDesplegableTipo3(
+                                  ['Seleccione'], 'Seleccione');
 
                           return Column(
                             children: [
@@ -94,10 +121,7 @@ class PantallaEditarReporte extends StatelessWidget {
                                     MainAxisAlignment.spaceBetween,
                                 children: [
                                   Componentes.getEtiqueta('Espacio'),
-                                  Componentes.getDesplegableTipo1(
-                                    nombresEspacios,
-                                    nombresEspacios[0],
-                                  ),
+                                  DesplegableTipo1.desplegableTipo1,
                                 ],
                               ),
                               Row(
@@ -115,6 +139,45 @@ class PantallaEditarReporte extends StatelessWidget {
                                     Argumentos.argsCategorias =
                                         snap.data as List<Categoria>;
 
+                                    Argumentos.argsCategoriasEspacio = [];
+                                    Argumentos.argsCategorias
+                                        .forEach((Categoria categoria) {
+                                      if (categoria.espacio ==
+                                          Argumentos
+                                              .argsEspacioSeleccionado.id) {
+                                        Argumentos.argsCategoriasEspacio
+                                            .add(categoria);
+                                      }
+                                    });
+
+                                    List<String> nombresCategorias = [];
+
+                                    Argumentos.argsCategoriasEspacio
+                                        .forEach((Categoria categoria) {
+                                      nombresCategorias
+                                          .add(categoria.nombre as String);
+                                    });
+
+                                    nombresCategorias.insert(0, 'Seleccione');
+
+                                    String categoriaActual = '';
+
+                                    Argumentos.argsCategoriasEspacio
+                                        .forEach((Categoria categoria) {
+                                      if (categoria.id ==
+                                          Argumentos
+                                              .argsReporteActual.categoria) {
+                                        categoriaActual =
+                                            categoria.nombre as String;
+                                        Argumentos.argsCategoriaSeleccionada =
+                                            categoria;
+                                      }
+                                    });
+
+                                    DesplegableTipo2.desplegableTipo3 =
+                                        Componentes.getDesplegableTipo3(
+                                            nombresCategorias, categoriaActual);
+
                                     return Row(
                                       mainAxisAlignment:
                                           MainAxisAlignment.spaceBetween,
@@ -124,7 +187,7 @@ class PantallaEditarReporte extends StatelessWidget {
                                       ],
                                     );
                                   } else if (snap.hasError) {
-                                    return Text('Error');
+                                    return Text('¡Ha sucedido un error!');
                                   }
 
                                   return CircularProgressIndicator();
@@ -133,7 +196,7 @@ class PantallaEditarReporte extends StatelessWidget {
                             ],
                           );
                         } else if (snapshot.hasError) {
-                          return Text('Error');
+                          return Text('¡Ha sucedido un error!');
                         }
 
                         return CircularProgressIndicator();
@@ -142,7 +205,7 @@ class PantallaEditarReporte extends StatelessWidget {
                     Container(
                       child: Componentes.getBotonTipo2(
                         'Agregar foto',
-                        10,
+                        20,
                         Icons.camera_enhance_outlined,
                         180,
                         30,
@@ -155,8 +218,8 @@ class PantallaEditarReporte extends StatelessWidget {
                   margin: EdgeInsets.only(bottom: 15.0),
                   alignment: Alignment.bottomCenter,
                   child: Componentes.getBotonTipo1(
-                    'Actualizar',
-                    4,
+                    'ACTUALIZAR',
+                    5,
                   ),
                 ),
               ],

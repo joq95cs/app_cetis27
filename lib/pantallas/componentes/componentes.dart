@@ -5,9 +5,12 @@ import 'package:app_cetis27/pantallas/componentes/componentes_statateful/despleg
 import 'package:app_cetis27/pantallas/componentes/componentes_statateful/desplegable_tipo_3.dart';
 import 'package:app_cetis27/pantallas/componentes/componentes_statateful/desplegable_tipo_4.dart';
 import 'package:app_cetis27/pantallas/componentes/componentes_statateful/desplegable_tipo_5.dart';
+import 'package:app_cetis27/pantallas/componentes/componentes_statateful/desplegable_tipo_6.dart';
+import 'package:app_cetis27/pantallas/componentes/componentes_statateful/desplegable_tipo_7.dart';
 import 'package:app_cetis27/pantallas/componentes/componentes_statateful/list_view_tipo_1.dart';
 import 'package:app_cetis27/pantallas/componentes/componentes_statateful/list_view_tipo_2.dart';
 import 'package:app_cetis27/pantallas/componentes/componentes_statateful/list_view_tipo_3.dart';
+import 'package:app_cetis27/pantallas/componentes/componentes_statateful/list_view_tipo_4.dart';
 import 'package:app_cetis27/pantallas/componentes/componentes_stateless/area_texto.dart';
 import 'package:app_cetis27/pantallas/componentes/componentes_stateless/barra_superior.dart';
 import 'package:app_cetis27/pantallas/componentes/componentes_stateless/boton_tipo_1.dart';
@@ -23,6 +26,7 @@ import 'package:app_cetis27/pantallas/componentes/componentes_stateless/card_tip
 import 'package:app_cetis27/pantallas/componentes/componentes_stateless/card_tipo_6.dart';
 import 'package:app_cetis27/pantallas/componentes/componentes_stateless/card_tipo_7.dart';
 import 'package:app_cetis27/pantallas/componentes/componentes_stateless/card_tipo_8.dart';
+import 'package:app_cetis27/pantallas/componentes/componentes_stateless/card_tipo_9.dart';
 import 'package:app_cetis27/pantallas/componentes/componentes_stateless/etiqueta.dart';
 import 'package:app_cetis27/pantallas/componentes/componentes_stateless/logo.dart';
 import 'package:flutter/material.dart';
@@ -95,6 +99,10 @@ class Componentes {
     return CardTipo8(categoria);
   }
 
+  static CardTipo9 getCardTipo9() {
+    return CardTipo9();
+  }
+
   static AppBar getBarraSuperior(String titulo) {
     return BarraSuperior.getBarraSuperior(titulo);
   }
@@ -124,6 +132,16 @@ class Componentes {
     return DesplegableTipo5(valores, base);
   }
 
+  static DesplegableTipo6 getDesplegableTipo6(
+      List<String> valores, String base) {
+    return DesplegableTipo6(valores, base);
+  }
+
+  static DesplegableTipo7 getDesplegableTipo7(
+      List<String> valores, String base) {
+    return DesplegableTipo7(valores, base);
+  }
+
   static ListViewTipo1 getListViewTipo1() {
     return ListViewTipo1();
   }
@@ -134,5 +152,9 @@ class Componentes {
 
   static ListViewTipo3 getListViewTipo3() {
     return ListViewTipo3();
+  }
+
+  static ListViewTipo4 getListViewTipo4() {
+    return ListViewTipo4();
   }
 }

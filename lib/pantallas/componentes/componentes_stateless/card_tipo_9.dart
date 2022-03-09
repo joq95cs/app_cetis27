@@ -1,3 +1,5 @@
+import 'dart:developer';
+
 import 'package:app_cetis27/logica/argumentos.dart';
 import 'package:app_cetis27/logica/cargar_categorias.dart';
 import 'package:app_cetis27/logica/cargar_espacios.dart';
@@ -7,8 +9,8 @@ import 'package:app_cetis27/logica/valores_activos.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 
-//DESCRIPCIÓN DE REPORTE
-class CardTipo3 extends StatelessWidget {
+//DESCRIPCIÓN DE LA CATEGORIA
+class CardTipo9 extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Card(
@@ -23,7 +25,7 @@ class CardTipo3 extends StatelessWidget {
             Padding(
               padding: EdgeInsets.only(bottom: 10.0),
               child: Text(
-                Argumentos.argsReporteActual.asunto as String,
+                Argumentos.argsCategoriaActual.nombre as String,
                 style: GoogleFonts.roboto(
                   textStyle: TextStyle(
                     fontSize: 18,
@@ -43,41 +45,21 @@ class CardTipo3 extends StatelessWidget {
                     ),
                   ),
                 ),
-                FutureBuilder(
-                  future: CargarEspacios().obtener(),
-                  builder: (context, snapshot) {
-                    if (snapshot.hasData) {
-                      List<Espacio> espacios = snapshot.data as List<Espacio>;
-
-                      String nombreEspacio = '';
-                      espacios.forEach((Espacio espacio) {
-                        if (espacio.id ==
-                            Argumentos.argsReporteActual.espacio) {
-                          nombreEspacio = espacio.nombre as String;
-                        }
-                      });
-                      return Text(
-                        nombreEspacio,
-                        style: GoogleFonts.roboto(
-                          textStyle: TextStyle(
-                            fontSize: 16,
-                            fontWeight: FontWeight.w400,
-                          ),
-                        ),
-                      );
-                    } else if (snapshot.hasError) {
-                      Text('Error');
-                    }
-
-                    return CircularProgressIndicator();
-                  },
-                ),
+                Text(
+                  ValoresActivos.espacio.nombre as String,
+                  style: GoogleFonts.roboto(
+                    textStyle: TextStyle(
+                      fontSize: 16,
+                      fontWeight: FontWeight.w400,
+                    ),
+                  ),
+                )
               ],
             ),
             Row(
               children: [
                 Text(
-                  'Usuario: ',
+                  'Departamento: ',
                   style: GoogleFonts.roboto(
                     textStyle: TextStyle(
                       fontSize: 16,
@@ -86,7 +68,7 @@ class CardTipo3 extends StatelessWidget {
                   ),
                 ),
                 Text(
-                  "${ValoresActivos.usuario.nombre as String} ${ValoresActivos.usuario.apellidoPaterno as String} ${ValoresActivos.usuario.apellidoMaterno as String}",
+                  'Departamento',
                   style: GoogleFonts.roboto(
                     textStyle: TextStyle(
                       fontSize: 16,
@@ -99,7 +81,7 @@ class CardTipo3 extends StatelessWidget {
             Row(
               children: [
                 Text(
-                  'Categoría: ',
+                  'Subdepartamento: ',
                   style: GoogleFonts.roboto(
                     textStyle: TextStyle(
                       fontSize: 16,
@@ -107,36 +89,14 @@ class CardTipo3 extends StatelessWidget {
                     ),
                   ),
                 ),
-                FutureBuilder(
-                  future: CargarCategorias().obtener(),
-                  builder: (context, snapshot) {
-                    if (snapshot.hasData) {
-                      List<Categoria> categorias =
-                          snapshot.data as List<Categoria>;
-
-                      String nombreCategoria = '';
-
-                      categorias.forEach((Categoria categoria) {
-                        if (categoria.id ==
-                            Argumentos.argsReporteActual.categoria) {
-                          nombreCategoria = categoria.nombre as String;
-                        }
-                      });
-
-                      return Text(
-                        nombreCategoria,
-                        style: GoogleFonts.roboto(
-                          textStyle: TextStyle(
-                            fontSize: 16,
-                            fontWeight: FontWeight.w400,
-                          ),
-                        ),
-                      );
-                    } else if (snapshot.hasError) {
-                      Text('Error');
-                    }
-                    return CircularProgressIndicator();
-                  },
+                Text(
+                  'Subdepartamento',
+                  style: GoogleFonts.roboto(
+                    textStyle: TextStyle(
+                      fontSize: 16,
+                      fontWeight: FontWeight.w400,
+                    ),
+                  ),
                 ),
               ],
             ),
@@ -155,7 +115,7 @@ class CardTipo3 extends StatelessWidget {
             Padding(
               padding: EdgeInsets.only(top: 10.0),
               child: Text(
-                Argumentos.argsReporteActual.descripcion as String,
+                Argumentos.argsCategoriaActual.descripcion as String,
                 style: GoogleFonts.roboto(
                   textStyle: TextStyle(
                     fontSize: 16,

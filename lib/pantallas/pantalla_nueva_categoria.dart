@@ -83,7 +83,9 @@ class PantallaNuevaCategoria extends StatelessWidget {
                               ),
                             ],
                           );
-                        } else if (snapshot.hasError) {}
+                        } else if (snapshot.hasError) {
+                          Text('¡Ha ocurrido un error!');
+                        }
 
                         return CircularProgressIndicator();
                       },
@@ -93,7 +95,10 @@ class PantallaNuevaCategoria extends StatelessWidget {
                 Container(
                   margin: EdgeInsets.only(bottom: 15.0),
                   alignment: Alignment.bottomCenter,
-                  child: Componentes.getBotonTipo1('ENVIAR', 3),
+                  child: Componentes.getBotonTipo1(
+                    'CREAR',
+                    7,
+                  ),
                 ),
               ],
             ),

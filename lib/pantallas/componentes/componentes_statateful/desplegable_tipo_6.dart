@@ -1,30 +1,35 @@
 import 'dart:developer';
 
 import 'package:app_cetis27/logica/argumentos.dart';
+import 'package:app_cetis27/logica/cargar_categorias.dart';
+import 'package:app_cetis27/logica/cargar_departamentos.dart';
 import 'package:app_cetis27/logica/modelos/categoria.dart';
+import 'package:app_cetis27/logica/modelos/departamento.dart';
 import 'package:app_cetis27/logica/modelos/espacio.dart';
+import 'package:app_cetis27/logica/modelos/subdepartamento.dart';
 import 'package:app_cetis27/pantallas/componentes/componentes.dart';
 import 'package:app_cetis27/pantallas/componentes/componentes_statateful/desplegable_tipo_2.dart';
+import 'package:app_cetis27/pantallas/componentes/componentes_statateful/desplegable_tipo_7.dart';
 import 'package:app_cetis27/pantallas/pantalla_editar_reporte_1.dart';
 import 'package:app_cetis27/pantallas/pantalla_nuevo_reporte.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 
-class DesplegableTipo1 extends StatefulWidget {
-  static DesplegableTipo1 desplegableTipo1 =
-      Componentes.getDesplegableTipo1(['Seleccione'], 'Seleccione');
-  static DesplegableTipo2 desplegableTipo2 =
-      Componentes.getDesplegableTipo2(['Seleccione'], 'Seleccione');
+class DesplegableTipo6 extends StatefulWidget {
+  static DesplegableTipo6 desplegableTipo6 =
+      Componentes.getDesplegableTipo6(['Seleccione'], 'Seleccione');
+  static DesplegableTipo7 desplegableTipo7 =
+      Componentes.getDesplegableTipo7(['Seleccione'], 'Seleccione');
 
   List<String> _valores;
   String _base;
 
-  DesplegableTipo1(this._valores, this._base);
+  DesplegableTipo6(this._valores, this._base);
   @override
-  State<DesplegableTipo1> createState() => _DesplegableTipo1State();
+  State<DesplegableTipo6> createState() => _DesplegableTipo6State();
 }
 
-class _DesplegableTipo1State extends State<DesplegableTipo1> {
+class _DesplegableTipo6State extends State<DesplegableTipo6> {
   String _actual = '';
 
   @override
@@ -63,21 +68,25 @@ class _DesplegableTipo1State extends State<DesplegableTipo1> {
           _actual = nuevo!;
         });
 
-        DesplegableTipo1.desplegableTipo2.reiniciar!();
-        DesplegableTipo2.desplegableTipo3.reiniciar!();
+        DesplegableTipo6.desplegableTipo7.reiniciar!();
 
         if (_actual != 'Seleccione') {
-          Argumentos.argsSubespacios = [];
-          Argumentos.argsEspacios.forEach((Espacio espacio) {
-            if (espacio.tipo as String == _actual) {
-              Argumentos.argsSubespacios.add(espacio);
+          Argumentos.argsDepartamentos.forEach((Departamento departamento) {
+            if (_actual == departamento.nombre as String) {
+              Argumentos.argsDepartamentoSeleccionado = departamento;
             }
           });
 
-          DesplegableTipo1.desplegableTipo2.actualizar!();
+          CargarDepartamentos().obtenerSubdepartamentos().then((futuro) {
+            Argumentos.argsSubdepartamentos = futuro;
+            DesplegableTipo6.desplegableTipo7.actualizar!();
+          });
+
+          Argumentos.argsCategoriaActual.tipo = 1;
         } else if (_actual == 'Seleccione') {
-          Argumentos.argsEspacioSeleccionado = Espacio();
-          Argumentos.argsCategoriaSeleccionada = Categoria();
+          Argumentos.argsDepartamentoSeleccionado = Departamento();
+          Argumentos.argsSubdepartamentoSeleccionado = Subdepartamento();
+          Argumentos.argsCategoriaActual.tipo = 0;
         }
       },
     );

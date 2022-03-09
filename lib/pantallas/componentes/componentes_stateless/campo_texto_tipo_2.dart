@@ -1,3 +1,4 @@
+import 'package:app_cetis27/pantallas/pantalla_nuevo_reporte.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 
